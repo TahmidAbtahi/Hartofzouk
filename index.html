@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hart of Zouk — Zouk & Kizomba Dance Events | Falls Church, VA</title>
+<meta name="description" content="Weekly zouk, tarraxo, and kizomba socials in Falls Church VA. Join the DMV's warmest dance community every Monday. Studio rental & event design too.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Fraunces:ital,wght@0,300;0,400;1,300;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ── HOME HERO — logo dissolves into the headline on scroll ── */
+.home-hero {
+  min-height: 240vh; /* long runway — slow hearts + quote dwell */
+  background: var(--ink);
+  position: relative;
+}
+.hero-stage {
+  position: sticky; top: 0; height: 100vh;
+  display: flex; align-items: center; overflow: hidden;
+}
+.hero-cinema {
+  position: absolute; inset: -4%;
+  background-size: cover; background-position: center 32%;
+  filter: blur(14px) saturate(1.05);
+  transform: scale(1.1);
+  animation: sharpenIn 2s .2s ease forwards;
+  will-change: filter, transform;
+}
+@keyframes sharpenIn { to { filter: blur(0) saturate(1.05); transform: scale(1.02); } }
+.hero-stage::before {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(100deg, rgba(30,16,10,.82) 0%, rgba(92,45,62,.4) 48%, rgba(30,16,10,.25) 100%),
+    linear-gradient(to top, rgba(30,16,10,.55) 0%, transparent 30%);
+}
+/* ACT 1 — layered logo, left of the dancers */
+.hero-logo-act {
+  position: absolute; inset: 0; z-index: 4;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.6rem;
+  width: 46%; max-width: 560px; left: 4%;
+  will-change: opacity;
+}
+.logo-stack {
+  position: relative;
+  width: min(320px, 40vw); aspect-ratio: 1;
+  filter: drop-shadow(0 36px 90px rgba(30,16,10,.55));
+}
+.logo-stack .ll {
+  position: absolute; inset: 0; width: 100%;
+  will-change: transform, opacity, filter;
+}
+#ll-orig { animation: logoIn 1.4s .3s ease both; }
+@keyframes logoIn { from { opacity: 0; transform: scale(.92); filter: blur(8px); } to { opacity: 1; transform: scale(1); filter: blur(0); } }
+/* white hearts the logo dissolves into */
+.white-hearts { position: fixed; inset: 0; pointer-events: none; z-index: 5; }
+.white-hearts span {
+  position: absolute; left: 0; top: 0;
+  color: #fffcf5; opacity: 0;
+  text-shadow: 0 0 18px rgba(255,252,245,.55);
+  will-change: transform, opacity;
+}
+.hero-tagline {
+  position: absolute; z-index: 6;
+  left: 4%; width: 46%; max-width: 560px; top: 17%;
+  text-align: center;
+  font-size: clamp(.78rem, 1.1vw, .95rem);
+  font-weight: 600; letter-spacing: .26em; text-transform: uppercase;
+  color: rgba(255,252,245,.85);
+  text-shadow: 0 2px 16px rgba(30,16,10,.6);
+  animation: fadeTag 1.6s .9s ease both;
+}
+.hero-tagline em { font-style: normal; color: var(--gold-lt); }
+.hero-tagline::before, .hero-tagline::after { content: ' ♥ '; color: rgba(232,188,90,.6); font-size: .8em; }
+@keyframes fadeTag { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+.hero-logo-act .scroll-hint {
+  font-size: .78rem; letter-spacing: .3em; text-transform: uppercase;
+  color: rgba(240,230,211,.7);
+  animation: hintPulse 2.2s 2.6s ease-in-out infinite both;
+  opacity: 0;
+}
+@keyframes hintPulse { 0%,100% { opacity:.4; transform: translateY(0);} 50% { opacity:1; transform: translateY(6px);} }
+/* ACT 2 — headline resolves in */
+.hero-grid {
+  position: absolute; inset: 0; z-index: 2;
+  display: flex; align-items: center;
+  width: 100%; padding: 0 0 0 5%;
+  opacity: 0; filter: blur(16px); transform: translateY(30px) scale(.97);
+  will-change: opacity, transform, filter;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: .6rem;
+  padding: .45rem 1.2rem;
+  border: 1px solid rgba(255,252,245,.45); border-radius: 24px;
+  font-size: .8rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+  color: #fffcf5; margin-bottom: 1.6rem;
+}
+.hero-badge::before { content: '♥'; color: var(--gold-lt); }
+.home-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 4.8vw, 4.4rem);
+  line-height: 1.02; font-weight: 900; color: #fffcf5;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 4px 40px rgba(30,16,10,.55);
+}
+.home-hero h1 em { display: block; font-style: italic; color: var(--gold-lt); font-weight: 400; }
+.hero-quote {
+  border-left: 3px solid rgba(232,188,90,.75);
+  padding-left: 1.3rem; margin-bottom: 2rem; max-width: 420px;
+}
+.hero-quote p {
+  font-family: 'Fraunces', serif; font-style: italic; font-weight: 300;
+  font-size: clamp(1.02rem, 1.7vw, 1.25rem); color: rgba(255,252,245,.92); line-height: 1.65;
+  text-shadow: 0 2px 20px rgba(30,16,10,.55);
+}
+.hero-quote em { font-style: normal; color: var(--gold-lt); }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+/* ── TICKER ── */
+.ticker-wrap { background: var(--plum); padding: .85rem 0; overflow: hidden; }
+.ticker-track { display: flex; width: max-content; animation: tick 32s linear infinite; }
+.ticker-track span {
+  padding: 0 2.4rem;
+  font-style: italic; font-size: 1rem; letter-spacing: .24em; text-transform: uppercase;
+  color: var(--cream-dk); white-space: nowrap;
+}
+.ticker-track span::after { content: '◇'; color: var(--gold); margin-left: 2.4rem; font-style: normal; opacity: .55; }
+@keyframes tick { to { transform: translateX(-50%); } }
+
+/* ── WELCOME ── */
+.welcome { background: var(--sand); }
+.welcome-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 5rem; align-items: center; }
+.welcome-visual { position: relative; }
+.welcome-visual img { width: 78%; border-radius: 50%; margin: 0 auto; box-shadow: 0 24px 60px rgba(196,83,42,.22); }
+.welcome-visual::after {
+  content: ''; position: absolute; right: 4%; bottom: -8%;
+  width: 110px; height: 110px;
+  border-right: 3px solid var(--gold); border-bottom: 3px solid var(--gold);
+}
+.welcome p { font-size: 1.12rem; line-height: 1.9; color: var(--ink-soft); margin-bottom: 1.1rem; }
+.welcome p strong { color: var(--terra); }
+.welcome .em-line { font-family: 'Fraunces', serif; font-style: italic; color: var(--plum); }
+
+/* ── PILLARS ── */
+.pillars { background: var(--ink); position: relative; overflow: hidden; }
+.pillars .watermark-bg { position: absolute; left: -100px; top: -60px; width: 460px; opacity: .05; }
+.pillars .h2 { color: var(--cream); }
+.pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; margin-top: 3.2rem; }
+.pillar {
+  background: rgba(240,230,211,.05);
+  border: 1px solid rgba(240,230,211,.1);
+  border-top: 3px solid var(--terra);
+  padding: 2.4rem 2rem;
+  transition: background .25s, transform .25s;
+}
+.pillar:hover { background: rgba(240,230,211,.1); transform: translateY(-5px); }
+.pillar .p-icon { font-size: 2.2rem; margin-bottom: 1.1rem; }
+.pillar h3 { font-family: 'Playfair Display', serif; font-size: 1.45rem; color: var(--gold-lt); margin-bottom: .8rem; font-style: italic; }
+.pillar p { font-size: 1rem; line-height: 1.8; color: rgba(240,230,211,.65); }
+.pillar p strong { color: var(--cream); }
+
+/* ── TESTIMONIALS ── */
+.testimonials { background: var(--plum); position: relative; overflow: hidden; text-align: center; }
+.testimonials .eyebrow { color: var(--gold-lt); }
+.testimonials .eyebrow::before, .testimonials .eyebrow::after { background: var(--gold-lt); }
+.testimonials .h2 { color: var(--cream); }
+.quote-stage { max-width: 760px; margin: 3rem auto 0; min-height: 200px; position: relative; }
+.t-quote { position: absolute; inset: 0; opacity: 0; transition: opacity .8s; pointer-events: none; }
+.t-quote.show { opacity: 1; pointer-events: auto; }
+.t-quote p {
+  font-family: 'Fraunces', serif; font-style: italic; font-weight: 300;
+  font-size: clamp(1.2rem, 2.4vw, 1.65rem); color: var(--cream); line-height: 1.7;
+}
+.t-quote cite { display: flex; align-items: center; justify-content: center; gap: .7rem; margin-top: 1.4rem; font-style: normal; font-size: .9rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+.t-av { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(212,160,48,.5); opacity: .9; box-shadow: 0 4px 14px rgba(30,16,10,.35); }
+.t-dots { display: flex; justify-content: center; gap: .6rem; margin-top: 2.2rem; }
+.t-dots button {
+  width: 10px; height: 10px; border-radius: 50%; border: none; cursor: pointer;
+  background: rgba(240,230,211,.3); transition: background .2s, transform .2s;
+}
+.t-dots button.on { background: var(--gold); transform: scale(1.3); }
+
+/* ── HOW IT WORKS ── */
+.how { background: var(--sand); text-align: center; }
+.how-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; }
+.how-step { padding: 0 1rem; }
+.how-num {
+  width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 1.2rem;
+  background: var(--terra); color: var(--cream);
+  font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 26px rgba(196,83,42,.3);
+}
+.how-step h3 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.4rem; color: var(--ink); margin-bottom: .7rem; }
+.how-step p { font-size: 1rem; line-height: 1.8; color: var(--muted); }
+
+/* ── UPCOMING PREVIEW ── */
+.upcoming-preview { background: var(--sand); padding-top: 0; }
+.up-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; margin-top: 3rem; }
+.up-card {
+  background: #fff; border: 1px solid rgba(30,16,10,.08);
+  overflow: hidden; text-decoration: none; color: inherit;
+  transition: transform .25s, box-shadow .25s; display: block;
+}
+.up-card:hover { transform: translateY(-6px); box-shadow: 0 22px 50px rgba(92,45,62,.18); }
+.up-banner {
+  height: 130px; position: relative;
+  display: flex; align-items: flex-end; padding: 1.1rem;
+  background: linear-gradient(135deg, var(--terra), var(--plum));
+}
+.up-banner.alt { background: linear-gradient(135deg, var(--plum), var(--ink)); }
+.up-banner.alt2 { background: linear-gradient(135deg, var(--gold), var(--terra)); }
+.up-banner .date-chip {
+  background: var(--cream); color: var(--ink);
+  padding: .5rem .85rem; text-align: center; line-height: 1.05;
+}
+.date-chip .d { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 900; color: var(--terra); display: block; }
+.date-chip .m { font-size: .65rem; letter-spacing: .18em; text-transform: uppercase; }
+.up-body { padding: 1.4rem 1.5rem 1.6rem; }
+.up-cat { font-size: .7rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+.up-body h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin: .35rem 0 .4rem; color: var(--ink); }
+.up-body .meta { font-size: .92rem; color: var(--muted); font-style: italic; }
+.up-body .loc { font-size: .85rem; color: var(--ink-soft); margin-top: .7rem; }
+
+/* ── NEWSLETTER ── */
+.newsletter { background: var(--terra); text-align: center; position: relative; overflow: hidden; }
+.newsletter .watermark-bg { position: absolute; right: -90px; top: -70px; width: 380px; opacity: .08; }
+.newsletter .h2 { color: var(--cream); }
+.newsletter p { color: rgba(240,230,211,.75); font-family: 'Fraunces', serif; font-style: italic; font-size: 1.1rem; margin-top: .8rem; }
+.nl-form { display: flex; max-width: 480px; margin: 2.2rem auto 0; position: relative; }
+.nl-form input {
+  flex: 1; padding: 1rem 1.4rem;
+  background: rgba(240,230,211,.14); border: 1px solid rgba(240,230,211,.35); border-right: none;
+  color: var(--cream); font-family: 'Lora', serif; font-size: 1rem;
+  outline: none; border-radius: 30px 0 0 30px;
+}
+.nl-form input::placeholder { color: rgba(240,230,211,.55); }
+.nl-form button {
+  padding: 1rem 1.8rem; border: none; cursor: pointer;
+  background: var(--ink); color: var(--cream);
+  font-family: 'Lora', serif; font-size: .85rem; font-weight: 600;
+  letter-spacing: .16em; text-transform: uppercase;
+  border-radius: 0 30px 30px 0; transition: background .2s;
+}
+.nl-form button:hover { background: var(--ink-soft); }
+
+@media (max-width: 920px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: left; }
+  .hero-logo-act { width: 100%; left: 0; } .logo-stack { width: 62vw; } 
+  .welcome-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .pillars-grid, .how-grid, .up-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body data-page="home">
+
+<!-- HERO -->
+<header class="home-hero" id="home-hero">
+  <div class="hero-stage">
+    <div class="hero-cinema" id="hero-cinema" aria-hidden="true"></div>
+
+    <!-- persistent tagline — stays through the whole story -->
+    <p class="hero-tagline" id="hero-tagline">A community for <em>Dance</em>, <em>Connection</em> &amp; <em>Mindfulness</em></p>
+
+    <!-- Act 1: the logo (dissolves on scroll) -->
+    <div class="hero-logo-act" id="logo-act">
+      <div class="logo-stack" aria-label="Hart of Zouk">
+        <img src="assets/logo-transparent.png" class="ll" id="ll-orig" alt="Hart of Zouk">
+      </div>
+      <div class="white-hearts" id="white-hearts" aria-hidden="true"></div>
+      <span class="scroll-hint">Scroll ↓</span>
+    </div>
+
+    <!-- Act 2: the headline -->
+    <div class="hero-grid" id="text-act">
+      <div style="max-width:460px;padding-top:9vh">
+        <h1>Feel the Hart <em>of Zouk.</em></h1>
+        <blockquote class="hero-quote">
+          <p>"Dance is the hidden language of the soul — spoken body to body, <em>heart to hart.</em>"</p>
+        </blockquote>
+        <div class="hero-actions">
+          <a href="events.html" class="btn btn-cream">Upcoming Events</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wave-out" style="z-index:4">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#5c2d3e"/>
+    </svg>
+  </div>
+</header>
+
+<!-- TICKER -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-track" id="ticker"></div>
+</div>
+
+<!-- WELCOME -->
+<section class="section welcome">
+  <div class="container welcome-grid">
+    <div class="welcome-visual reveal">
+      <img src="assets/logo.png" alt="Hart of Zouk emblem">
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">Welcome Home</p>
+      <h2 class="h2">A Space Built for <em>Connection</em></h2>
+      <p style="margin-top:1.4rem">We believe <strong>connection is not a luxury — it's a human need.</strong> Hart of Zouk is a DMV dance collective where movement, music, and community come together, every single week.</p>
+      <p>This isn't about prescribing one style or one path. From <strong>urbankiz and tarraxo</strong> to <strong>douceur and Brazilian zouk</strong>, we offer a warm, supportive floor to grow your dance, deepen your musicality, and build real relationships — with the music, with your partners, and with yourself.</p>
+      <p class="em-line">Here is a place to slow down, connect, express — and remember why you fell in love with dancing.</p>
+      <a href="about.html" class="btn btn-ghost-dark" style="margin-top:1.4rem">Learn Our Story</a>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="section pillars">
+  <img src="assets/watermark.png" class="watermark-bg" alt="" aria-hidden="true">
+  <div class="container">
+    <p class="eyebrow reveal">What We Do</p>
+    <h2 class="h2 reveal">Three Ways to <em style="color:var(--gold)">Move With Us</em></h2>
+    <div class="pillars-grid">
+      <div class="pillar reveal">
+        <div class="p-icon">💃</div>
+        <h3>Dance Events</h3>
+        <p>Weekly <strong>Urbankiz Mondays</strong>, festival after-parties, date-night workshops, and Jack &amp; Jills. Every event starts with a class — beginners always welcome, no partner needed.</p>
+      </div>
+      <div class="pillar reveal" style="transition-delay:.1s">
+        <div class="p-icon">🏛</div>
+        <h3>Studio Rental</h3>
+        <p>A warm, flexible space in <strong>Falls Church, VA</strong> for your own classes, rehearsals, photo shoots, or private gatherings. Hourly and recurring rates available.</p>
+      </div>
+      <div class="pillar reveal" style="transition-delay:.2s">
+        <div class="p-icon">🎨</div>
+        <h3>Event Decor &amp; Design</h3>
+        <p>Full event design through our sister studio <strong>Open Window Events</strong> — immersive aesthetics, styling, and atmosphere for celebrations across the DMV.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials">
+  <div class="container">
+    <p class="eyebrow center reveal">Community Voices</p>
+    <h2 class="h2 reveal">In Their <em style="color:var(--gold)">Words</em></h2>
+    <div class="quote-stage" id="quotes"></div>
+    <div class="t-dots" id="t-dots"></div>
+  </div>
+</section>
+
+<!-- UPCOMING PREVIEW -->
+<section class="section upcoming-preview">
+  <div class="container">
+    <p class="eyebrow reveal">On the Calendar</p>
+    <h2 class="h2 reveal">Upcoming <em>Gatherings</em></h2>
+    <div class="up-grid">
+      <a class="up-card reveal" href="events.html#urbankiz-mondays">
+        <div class="up-banner">
+          <span class="date-chip"><span class="d">26</span><span class="m">May</span></span>
+        </div>
+        <div class="up-body">
+          <span class="up-cat">Weekly Social</span>
+          <h3>Urbankiz Mondays</h3>
+          <p class="meta">Lines &amp; Landings Pt. 2 · with Annie</p>
+          <p class="loc">7:30 PM · Falls Church, VA · $15</p>
+        </div>
+      </a>
+      <a class="up-card reveal" style="transition-delay:.1s" href="events.html#sweet-moments">
+        <div class="up-banner alt">
+          <span class="date-chip"><span class="d">15</span><span class="m">Jun</span></span>
+        </div>
+        <div class="up-body">
+          <span class="up-cat">Workshop</span>
+          <h3>Sweet Moments</h3>
+          <p class="meta">Date Night Workshop · limited couples</p>
+          <p class="loc">6:00 PM · Private Studio, NoVa</p>
+        </div>
+      </a>
+      <a class="up-card reveal" style="transition-delay:.2s" href="showcase.html">
+        <div class="up-banner alt2">
+          <span class="date-chip"><span class="d">8</span><span class="m">Aug</span></span>
+        </div>
+        <div class="up-body">
+          <span class="up-cat">★ Featured</span>
+          <h3>Summer Showcase 2026</h3>
+          <p class="meta">Performances + Zouk Social · DJ Warhol</p>
+          <p class="loc">6:30 PM · 1st Stage Theater, Tysons VA</p>
+        </div>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:2.6rem" class="reveal">
+      <a href="events.html" class="btn btn-terra">View Full Schedule</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="section newsletter">
+  <img src="assets/watermark.png" class="watermark-bg" alt="" aria-hidden="true">
+  <div class="container">
+    <p class="eyebrow center reveal" style="color:rgba(240,230,211,.75)">Stay Close</p>
+    <h2 class="h2 reveal">Never miss a Monday.</h2>
+    <p class="reveal">Event updates, class topics, and early festival access — straight to your inbox.</p>
+    <form class="nl-form reveal" onsubmit="event.preventDefault();this.innerHTML='<p style=\'color:var(--cream);font-style:italic;font-size:1.1rem;width:100%\'>Welcome to the community ♥</p>'">
+      <input type="email" placeholder="your@email.com" required>
+      <button type="submit">Join</button>
+    </form>
+  </div>
+</section>
+
+<script src="js/main.js"></script>
+<script>
+
+
+// scroll choreography: original logo dissolves → white hearts drift → quote resolves & DWELLS. Reversible.
+(function(){
+  const hero  = document.getElementById('home-hero');
+  const stage = hero.querySelector('.hero-stage');
+  const text  = document.getElementById('text-act');
+  const img   = document.getElementById('hero-cinema');
+  const logo  = document.getElementById('logo-act');
+  const wrap  = document.getElementById('white-hearts');
+  const smooth = t => t*t*(3-2*t);
+
+  let introDone = false;
+  setTimeout(()=>{ introDone = true; onScroll(); }, 1900);
+
+  function onScroll(){
+    if (!introDone) return;
+    const runway = hero.offsetHeight - window.innerHeight;
+    const p = Math.min(1, Math.max(0, window.scrollY / (runway || 1)));
+
+    // hearts overlay only participates while the hero stage is on screen
+    wrap.style.display = (p >= 1 || p <= 0) ? 'none' : '';
+    if (p >= 1) return;
+
+    // logo dissolves gently over 0 → 30%
+    const lp = smooth(Math.min(1, p / 0.38));
+    logo.style.opacity   = (1 - lp).toFixed(2);
+    logo.style.filter    = `blur(${(lp*12).toFixed(1)}px)`;
+    logo.style.transform = `scale(${(1 - lp*0.06).toFixed(3)})`;
+
+    // quote resolves 22% → 52%, then DWELLS fully visible for the rest of the runway
+    const tp = smooth(Math.min(1, Math.max(0, (p - 0.3) / 0.32)));
+    text.style.opacity   = tp.toFixed(2);
+    text.style.filter    = `blur(${((1-tp)*14).toFixed(1)}px)`;
+    text.style.transform = `translateY(${((1-tp)*22).toFixed(0)}px)`;
+
+    // background: barely-there defocus at the crossover
+    img.style.animation = 'none';
+    const mid = Math.sin(Math.min(1, p/0.6) * Math.PI) * (p < 0.6 ? 1 : 0);
+    img.style.filter    = `blur(${(mid*2).toFixed(1)}px) saturate(1.05)`;
+    img.style.transform = `scale(${(1.02 + p*0.04).toFixed(3)})`;
+  }
+  window.addEventListener('scroll', ()=>requestAnimationFrame(onScroll), {passive:true});
+  window.addEventListener('resize', ()=>requestAnimationFrame(onScroll), {passive:true});
+})();
+
+// ambient heart emitter: hearts are BORN at the logo, float across the screen on random wandering paths, and dissolve
+(function(){
+  const wrap  = document.getElementById('white-hearts');
+  const stackEl = document.querySelector('.logo-stack');
+  const hero  = document.getElementById('home-hero');
+  const pool = [], live = [];
+  const MAX = 3;
+
+  function spawn(now){
+    if (live.length >= MAX) return;
+    const el = pool.pop() || (() => {
+      const s = document.createElement('span');
+      s.textContent = '♥';
+      wrap.appendChild(s);
+      return s;
+    })();
+    const r = stackEl.getBoundingClientRect();
+    // birth point: random spot on the logo's rim
+    const a0 = -Math.PI * (0.15 + Math.random()*0.7);   // upper arc of the rim
+    const rr = (r.width/2) * (0.55 + Math.random()*0.4);
+    const x0 = r.left + r.width/2  + Math.cos(a0)*rr;
+    const y0 = r.top  + r.height/2 + Math.sin(a0)*rr;
+    // travel: bubbles — straight up with a gentle sway
+    const dir   = -Math.PI/2 + (Math.random()-0.5)*0.35;  // upward cone (±10°)
+    const drift = 4 + Math.random()*10;            // barely any lateral push px/s
+    const rise  = 46 + Math.random()*44;           // strong upward float px/s
+    const life  = 4.5 + Math.random()*2.5;         // rises, then dissolves
+    const size  = 0.8 + Math.random()*0.9;         // rem
+    const wSeed = Math.random()*10;
+    const wAmp  = 10 + Math.random()*18;           // wander amplitude px
+    const wFreq = 0.4 + Math.random()*0.7;
+    const spin  = (Math.random()<0.5?-1:1)*(6+Math.random()*16);
+    el.style.fontSize = size + 'rem';
+    el.style.opacity = 0;
+    live.push({ el, x0, y0, dir, drift, rise, life, born: now, wSeed, wAmp, wFreq, spin });
+  }
+
+  let last = performance.now(), acc = 0, wasAtTop = true;
+  function resetAll(){
+    for (const h of live) { h.el.style.opacity = 0; pool.push(h.el); }
+    live.length = 0; acc = 0;
+  }
+  function tick(now){
+    const dt = Math.min(0.05, (now - last)/1000); last = now;
+    // only animate while the hero is on screen
+    const hr = hero.getBoundingClientRect();
+    const onScreen = hr.bottom > 0 && hr.top < innerHeight;
+    wrap.style.display = onScreen ? '' : 'none';
+    // reset the emitter each time the user returns to the very top
+    const atTop = window.scrollY < 8;
+    if (atTop && !wasAtTop) resetAll();
+    wasAtTop = atTop;
+    if (onScreen) {
+      acc += dt;
+      const rate = 2.2;                        // one new heart every ~2.2s
+      while (acc > rate) { acc -= rate; spawn(now/1000); }
+      for (let k = live.length-1; k >= 0; k--) {
+        const h = live[k];
+        const age = now/1000 - h.born;
+        const t = age / h.life;
+        if (t >= 1) {
+          h.el.style.opacity = 0;
+          pool.push(h.el); live.splice(k,1); continue;
+        }
+        const sway = Math.sin(age*h.wFreq*2*Math.PI + h.wSeed) * h.wAmp;   // horizontal only, like a rising bubble
+        const px = h.x0 + Math.cos(h.dir)*h.drift*age + sway;
+        const py = h.y0 - h.rise*age + Math.sin(h.dir)*h.drift*age*0.3;
+        const fade = Math.sin(Math.min(1,t)*Math.PI);   // in → hold → out
+        h.el.style.opacity   = (fade*0.65).toFixed(2);
+        h.el.style.transform = `translate(${px.toFixed(0)}px, ${py.toFixed(0)}px) rotate(${(h.spin*age).toFixed(0)}deg) scale(${(0.6+fade*0.5).toFixed(2)})`;
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+
+// cinematic hero: local file first, CDN fallback, gradient if neither
+(function(){
+  const el = document.getElementById('hero-cinema');
+  const LOCAL = 'assets/hero.jpg';
+  const CDN = 'https://d8j0ntlcm91z4.cloudfront.net/user_3ErSakflWmv1YTxDDtKFlSXTsyT/hf_20260711_021503_9312962b-70dd-467f-a9db-844731733724.png';
+  function tryImg(src, ok, fail){ const i=new Image(); i.onload=()=>ok(src); i.onerror=fail; i.src=src; }
+  tryImg(LOCAL, s=>el.style.backgroundImage=`url(${s})`,
+    ()=>tryImg(CDN, s=>el.style.backgroundImage=`url(${s})`, ()=>{}));
+})();
+// ticker
+const words = ['Dance','Movement','Mindfulness','Elegance','Connection','Rhythm','Expression','Intimacy','Flow','Presence','Community','Grace'];
+document.getElementById('ticker').innerHTML = [...words, ...words].map(w => `<span>${w}</span>`).join('');
+
+// testimonials
+const quotes = [
+  { q: "It is always an amazing time when Hart of Zouk hosts an event. From the decor to the festivities it's always thoroughly planned out. Andrea has been a mastermind creating a space that's all inclusive and professionally orchestrated. Highly recommend.", by: "Dom MJ", av: "assets/av-dom.jpg" },
+  { q: "Andrea consistently creates cozy, warm, inclusive spaces that feel like the perfect blend of professionalism and community. From the welcoming home, to the yummy snacks, to the diverse array of workshop offerings — these thoughtfully-curated events truly do come from the heart.", by: "Joanie Atkinson", av: "assets/av-joanie.jpg" },
+  { q: "Cozy, fun, well-organized events 'from the Hart!' Andrea puts an incredible amount of thought and care into her work and fosters a welcoming, inclusive, and safe environment for everyone.", by: "Elena Rovito", av: "assets/av-elena.jpg" },
+  { q: "Andrea's events at Hart of Zouk are always a blast! The instructors are incredible, the social dances are a great experience, and the refreshments really hit the spot. Anyone interested in diving deeper into the Zouk scene should definitely check these out.", by: "John Murdock", av: "assets/av-john.jpg" },
+  { q: "Maison Rouge is such a cozy and welcoming home — it feels really good being there. An ideal location between the dance space and great overall vibes.", by: "Tom Clement", av: "assets/av-tom.jpg" },
+];
+const stage = document.getElementById('quotes');
+const dots = document.getElementById('t-dots');
+quotes.forEach((t,i) => {
+  stage.insertAdjacentHTML('beforeend', `<figure class="t-quote${i===0?' show':''}"><p>"${t.q}"</p><cite>${t.av?`<img src="${t.av}" alt="" class="t-av">`:''}<span>— ${t.by}</span></cite></figure>`);
+  dots.insertAdjacentHTML('beforeend', `<button class="${i===0?'on':''}" aria-label="Quote ${i+1}" onclick="showQuote(${i})"></button>`);
+});
+let qi = 0, qTimer = setInterval(() => showQuote((qi+1)%quotes.length), 6000);
+function showQuote(i) {
+  qi = i;
+  document.querySelectorAll('.t-quote').forEach((el,j)=>el.classList.toggle('show', j===i));
+  document.querySelectorAll('.t-dots button').forEach((el,j)=>el.classList.toggle('on', j===i));
+}
+</script>
+</body>
+</html>

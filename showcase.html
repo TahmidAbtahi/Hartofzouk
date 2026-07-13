@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Summer Showcase 2026 — Hart of Zouk | 1st Stage Theater, Tysons VA</title>
+<meta name="description" content="Summer Showcase 2026 — an evening of dance performances and Brazilian Zouk social. Saturday August 8 at 1st Stage Theater, Tysons VA.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Fraunces:ital,wght@0,300;0,400;1,300;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.sc-hero {
+  min-height: 92vh;
+  background: var(--ink);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; position: relative; overflow: hidden;
+  padding: 8rem 2rem 6rem;
+}
+.sc-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 45% 65% at 50% 0%, rgba(212,160,48,.22) 0%, transparent 62%),
+    radial-gradient(ellipse 65% 55% at 50% 105%, rgba(196,83,42,.3) 0%, transparent 65%);
+}
+.curtain { position: absolute; top: 0; bottom: 0; width: 8vw; opacity: .12; }
+.curtain.l { left: 0; background: linear-gradient(90deg, var(--plum), transparent); }
+.curtain.r { right: 0; background: linear-gradient(-90deg, var(--plum), transparent); }
+.sc-kicker {
+  display: inline-flex; align-items: center; gap: .9rem;
+  font-size: .82rem; letter-spacing: .32em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.6rem;
+  animation: fadeUp .9s ease both;
+}
+.sc-kicker::before, .sc-kicker::after { content: '✦'; color: var(--terra); }
+.sc-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900; line-height: .96;
+  font-size: clamp(3.4rem, 9vw, 7.5rem);
+  color: var(--cream);
+  animation: fadeUp .9s .12s ease both;
+}
+.sc-hero h1 em { display: block; font-style: italic; color: var(--gold); font-weight: 400; }
+.sc-sub {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: clamp(1.05rem, 2vw, 1.35rem); color: rgba(240,230,211,.7);
+  max-width: 560px; margin: 1.6rem auto 2.4rem; line-height: 1.7;
+  animation: fadeUp .9s .24s ease both;
+}
+.sc-datebox {
+  display: inline-flex; align-items: stretch; margin-bottom: 2.4rem;
+  border: 1px solid rgba(212,160,48,.4);
+  animation: fadeUp .9s .36s ease both;
+}
+.sc-datebox > div { padding: 1rem 1.8rem; }
+.sc-datebox .d1 { background: var(--terra); }
+.sc-datebox .d1 .big { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; color: var(--cream); line-height: 1; }
+.sc-datebox .d1 .sm { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(240,230,211,.8); }
+.sc-datebox .d2 { display: flex; flex-direction: column; justify-content: center; text-align: left; }
+.sc-datebox .d2 strong { color: var(--cream); font-size: 1.05rem; font-family: 'Playfair Display', serif; }
+.sc-datebox .d2 span { color: var(--muted); font-size: .9rem; }
+.sc-cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; animation: fadeUp .9s .48s ease both; }
+.tickets-soon {
+  display: inline-flex; align-items: center; gap: .6rem;
+  padding: .9rem 2.2rem; border-radius: 30px;
+  background: var(--gold); color: var(--ink);
+  font-size: .92rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  animation: glowPulse 2.4s ease-in-out infinite;
+}
+@keyframes glowPulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(212,160,48,.45); }
+  50% { box-shadow: 0 0 0 14px rgba(212,160,48,0); }
+}
+@keyframes fadeUp { from { opacity:0; transform: translateY(26px); } to { opacity:1; transform: translateY(0); } }
+.f-heart {
+  position: absolute; color: var(--terra); opacity: 0;
+  animation: floatUp 9s linear infinite;
+  font-size: 1.2rem; pointer-events: none;
+}
+@keyframes floatUp {
+  0% { transform: translateY(20px) scale(.7) rotate(-8deg); opacity: 0; }
+  12% { opacity: .35; }
+  85% { opacity: .2; }
+  100% { transform: translateY(-88vh) scale(1.15) rotate(10deg); opacity: 0; }
+}
+.sc-about { background: var(--sand); }
+.sc-about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 4.5rem; align-items: center; }
+.sc-about p { font-size: 1.12rem; line-height: 1.9; color: var(--ink-soft); margin-bottom: 1.1rem; }
+.sc-about p strong { color: var(--terra); }
+.sc-flow { background: var(--plum); padding: 2.2rem; border-radius: 6px; color: var(--cream-dk); }
+.sc-flow h3 { font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold-lt); font-size: 1.35rem; margin-bottom: 1.4rem; }
+.flow-step { display: flex; gap: 1rem; padding: .9rem 0; border-bottom: 1px solid rgba(240,230,211,.12); }
+.flow-step:last-child { border: none; }
+.flow-ic {
+  width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
+  background: rgba(196,83,42,.35); border: 1px solid rgba(212,160,48,.4);
+  display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+}
+.flow-step strong { display: block; color: var(--cream); font-size: 1rem; }
+.flow-step span { font-size: .92rem; color: rgba(240,230,211,.6); font-style: italic; }
+.sc-schedule { background: var(--ink); position: relative; overflow: hidden; }
+.sc-schedule .watermark-bg { position: absolute; right: -100px; top: -60px; width: 420px; opacity: .05; }
+.sc-schedule .h2 { color: var(--cream); }
+.timeline { max-width: 720px; margin: 3rem auto 0; position: relative; }
+.timeline::before {
+  content: ''; position: absolute; left: 29px; top: 8px; bottom: 8px;
+  width: 2px; background: linear-gradient(var(--terra), var(--gold), var(--plum-lt));
+}
+.tl-item { display: flex; gap: 1.8rem; padding: 1.4rem 0; position: relative; }
+.tl-dot {
+  width: 60px; height: 60px; border-radius: 50%; flex-shrink: 0; z-index: 1;
+  background: var(--ink); border: 2px solid var(--terra);
+  display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+}
+.tl-body h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--gold-lt); font-style: italic; }
+.tl-body .time { font-size: .82rem; letter-spacing: .2em; text-transform: uppercase; color: var(--terra); font-weight: 700; margin-bottom: .3rem; }
+.tl-body p { color: rgba(240,230,211,.6); font-size: 1rem; line-height: 1.75; }
+.sc-venue { background: var(--sand); }
+.venue-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: stretch; }
+.venue-card { background: #fff; border: 1px solid rgba(30,16,10,.08); padding: 2.4rem; border-top: 4px solid var(--terra); }
+.venue-card h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--ink); margin-bottom: .4rem; }
+.venue-card .addr { font-style: italic; color: var(--muted); font-size: 1.05rem; margin-bottom: 1.4rem; }
+.venue-card .fact { display: flex; gap: .8rem; padding: .55rem 0; font-size: 1rem; color: var(--ink-soft); }
+.venue-card .fact span:first-child { color: var(--terra); }
+.venue-map iframe { width: 100%; height: 100%; min-height: 340px; border: 0; filter: sepia(.22) saturate(.85); }
+.sc-close { background: var(--terra); text-align: center; position: relative; overflow: hidden; }
+.sc-close .h2 { color: var(--cream); }
+.sc-close p { color: rgba(240,230,211,.8); font-family: 'Fraunces', serif; font-style: italic; font-size: 1.15rem; max-width: 620px; margin: 1rem auto 0; line-height: 1.8; }
+.sc-close .photo-credit { font-size: .85rem; letter-spacing: .16em; text-transform: uppercase; font-style: normal; font-family: 'Lora', serif; color: rgba(240,230,211,.55); margin-top: 2.4rem; }
+@media (max-width: 920px) {
+  .sc-about-grid, .venue-grid { grid-template-columns: 1fr; gap: 2.4rem; }
+  .sc-datebox { flex-direction: column; }
+}
+</style>
+</head>
+<body data-page="events">
+
+<header class="sc-hero">
+  <div class="curtain l"></div><div class="curtain r"></div>
+  <div id="hearts"></div>
+
+  <p class="sc-kicker">Hart of Zouk Presents</p>
+  <h1>Summer <em>Showcase 2026</em></h1>
+  <p class="sc-sub">An evening celebrating creativity, artistry, and the incredible talent of our local dance community.</p>
+
+  <div class="sc-datebox">
+    <div class="d1"><div class="big">AUG 8</div><div class="sm">Saturday</div></div>
+    <div class="d2">
+      <strong>1st Stage Theater</strong>
+      <span>1524 Spring Hill Rd, Tysons, VA 22102</span>
+    </div>
+  </div>
+
+  <div class="sc-cta-row">
+    <a href="https://www.danceplace.com/book/it/13321" target="_blank" rel="noopener" class="tickets-soon" style="text-decoration:none;cursor:pointer">✦ Get Tickets</a>
+    <a href="https://www.facebook.com/events/1731162954568492/" target="_blank" rel="noopener" class="btn btn-ghost-light">Facebook Event</a>
+  </div>
+</header>
+
+<section class="section sc-about">
+  <div class="container sc-about-grid">
+    <div class="reveal">
+      <p class="eyebrow">The Evening</p>
+      <h2 class="h2">A Night of <em>Performance & Connection</em></h2>
+      <p style="margin-top:1.4rem">The Summer Showcase brings together artists from a variety of backgrounds to share <strong>original choreographies</strong>, explore movement, and inspire one another through performance.</p>
+      <p>Whether you're performing or cheering from the audience, this is a night to connect, support our community, and enjoy an exciting lineup of dance pieces.</p>
+      <p>We'll kick off with a <strong>Brazilian Zouk Social</strong>, pause for the showcase performances, and then continue dancing into the night.</p>
+      <p style="font-family:'Fraunces',serif;font-style:italic;color:var(--plum)">Whether you're a dancer, friend, family member, or simply someone who loves the performing arts — we'd love to have you with us.</p>
+    </div>
+    <div class="sc-flow reveal">
+      <h3>The Flow of the Night</h3>
+      <div class="flow-step">
+        <div class="flow-ic">🎶</div>
+        <div><strong>Social Dancing Begins</strong><span>with DJ Warhol</span></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-ic">🎭</div>
+        <div><strong>Showcase Performances</strong><span>theater doors open · original works</span></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-ic">💃</div>
+        <div><strong>Social Continues</strong><span>Brazilian Zouk until midnight</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section sc-schedule">
+  <img src="assets/watermark.png" class="watermark-bg" alt="" aria-hidden="true">
+  <div class="container">
+    <p class="eyebrow center reveal" style="color:var(--gold-lt)">Saturday · August 8</p>
+    <h2 class="h2 reveal" style="text-align:center">The <em style="color:var(--gold)">Schedule</em></h2>
+
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-dot">🎶</div>
+        <div class="tl-body">
+          <p class="time">6:30 PM</p>
+          <h3>Social Dancing Begins</h3>
+          <p>Warm up the floor with DJ Warhol spinning Brazilian zouk. Come early, greet friends, get moving.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot">🎭</div>
+        <div class="tl-body">
+          <p class="time">8:00 PM</p>
+          <h3>Theater Doors Open — Showcase Performances</h3>
+          <p>Original choreographies from artists across the community. Take a seat, cheer loud, be inspired.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot">🌙</div>
+        <div class="tl-body">
+          <p class="time">9:30 PM – 12:00 AM</p>
+          <h3>Brazilian Zouk Social Continues</h3>
+          <p>Back to the floor. Dance with the performers, celebrate the night, and close it out together at midnight.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- OFFICIAL FLYER -->
+<section class="section" style="background:var(--plum);text-align:center">
+  <div class="container">
+    <h2 class="h2 reveal" style="color:var(--cream)">Save <em style="color:var(--gold)">&amp; Share</em></h2>
+    <div class="reveal flyer-rotator" style="max-width:760px;margin:2.4rem auto 0;position:relative;aspect-ratio:16/10">
+      <img src="assets/showcase-flyer-wide.jpg" alt="Summer Showcase &amp; Social flyer" class="fl fl-on"
+           style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;border-radius:6px;transition:opacity 1.2s ease">
+      <img src="assets/showcase-flyer.jpg" alt="Summer Showcase &amp; Social flyer — schedule" class="fl"
+           style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;border-radius:6px;opacity:0;transition:opacity 1.2s ease">
+    </div>
+    <div class="reveal" style="margin-top:1.8rem">
+      <a href="https://www.danceplace.com/book/it/13321" target="_blank" rel="noopener" class="btn btn-cream">Get Tickets ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="section sc-venue">
+  <div class="container">
+    <p class="eyebrow reveal">Where</p>
+    <h2 class="h2 reveal">The <em>Venue</em></h2>
+    <div class="venue-grid" style="margin-top:2.6rem">
+      <div class="venue-card reveal">
+        <h3>1st Stage Theater</h3>
+        <p class="addr">1524 Spring Hill Rd, Tysons, VA 22102</p>
+        <div class="fact"><span>🎭</span><span>An intimate professional theater — every seat is a good seat.</span></div>
+        <div class="fact"><span>🚇</span><span>Minutes from Spring Hill Metro (Silver Line).</span></div>
+        <div class="fact"><span>🅿️</span><span>Free parking on site.</span></div>
+        <div class="fact"><span>📸</span><span>Photography by Dan Sweet.</span></div>
+        <a href="https://maps.google.com/?q=1st+Stage+Theater+1524+Spring+Hill+Rd+Tysons+VA+22102" target="_blank" rel="noopener" class="btn btn-terra" style="margin-top:1.4rem">Get Directions</a>
+      </div>
+      <div class="venue-map reveal">
+        <iframe src="https://www.google.com/maps?q=1st+Stage+Theater,+1524+Spring+Hill+Rd,+Tysons,+VA+22102&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="1st Stage Theater map"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section sc-close">
+  <div class="container">
+    <h2 class="h2 reveal">Come celebrate with us.</h2>
+    <p class="reveal">Dance, creativity, and community — we can't wait to share this special evening with you. Tickets are live now.</p>
+    <div class="reveal" style="margin-top:2rem">
+      <a href="https://www.danceplace.com/book/it/13321" target="_blank" rel="noopener" class="btn btn-cream">Get Tickets ↗</a>
+      <a href="https://www.facebook.com/events/1731162954568492/" target="_blank" rel="noopener" class="btn btn-ghost-light" style="margin-left:.6rem">RSVP on Facebook</a>
+    </div>
+    <p class="photo-credit reveal">In collaboration with District Zouk &amp; Lunna Y Gabi · Photography by Dan Sweet</p>
+  </div>
+</section>
+
+<script src="js/main.js"></script>
+<script>
+// rotate between the two flyers
+(function(){
+  const fls = document.querySelectorAll('.flyer-rotator .fl');
+  if (fls.length > 1) {
+    let cur = 0;
+    setInterval(()=>{
+      fls[cur].style.opacity = 0;
+      cur = (cur + 1) % fls.length;
+      fls[cur].style.opacity = 1;
+    }, 4500);
+  }
+})();
+
+const hz = document.getElementById('hearts');
+for (let i = 0; i < 10; i++) {
+  const h = document.createElement('span');
+  h.className = 'f-heart';
+  h.textContent = '♥';
+  h.style.left = (6 + Math.random()*88) + '%';
+  h.style.bottom = '0';
+  h.style.animationDelay = (Math.random()*9) + 's';
+  h.style.fontSize = (0.8 + Math.random()*1.1) + 'rem';
+  hz.appendChild(h);
+}
+</script>
+</body>
+</html>

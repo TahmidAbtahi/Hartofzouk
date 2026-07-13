@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upcoming Events — Hart of Zouk | Falls Church, VA</title>
+<meta name="description" content="Upcoming zouk, tarraxo & kizomba events in Falls Church VA — weekly Urbankiz Mondays, workshops, and festivals.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Fraunces:ital,wght@0,300;0,400;1,300;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.events-layout { display: grid; grid-template-columns: 330px 1fr; gap: 3rem; align-items: start; }
+/* calendar */
+.cal { background: var(--ink); position: sticky; top: 6rem; }
+.cal-head { background: var(--terra); padding: 1.1rem 1.4rem; display: flex; justify-content: space-between; align-items: center; }
+.cal-head h3 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.15rem; color: var(--cream); }
+.cal-head button { background: none; border: none; color: var(--cream); cursor: pointer; font-size: 1rem; opacity: .75; }
+.cal-head button:hover { opacity: 1; }
+.cal-body { padding: 1.1rem; }
+.cal-dow, .cal-days { display: grid; grid-template-columns: repeat(7,1fr); gap: 3px; }
+.cal-dow span { text-align: center; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding-bottom: .5rem; }
+.cal-days div { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: .85rem; color: var(--cream-dk); border-radius: 3px; }
+.cal-days .ev { color: var(--gold); font-weight: 700; position: relative; cursor: pointer; }
+.cal-days .ev::after { content:''; position:absolute; bottom:3px; left:50%; transform:translateX(-50%); width:4px; height:4px; border-radius:50%; background:var(--gold); }
+.cal-days .today { background: var(--terra); color: var(--cream); font-weight: 700; }
+/* event rows */
+.ev-row {
+  display: grid; grid-template-columns: 84px 1fr auto; gap: 1.6rem; align-items: start;
+  background: #fff; border: 1px solid rgba(30,16,10,.08);
+  padding: 1.7rem; margin-bottom: 2px; scroll-margin-top: 6.5rem;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.ev-row:hover { border-color: var(--terra); transform: translateX(5px); box-shadow: -5px 0 0 var(--terra); }
+.ev-date { text-align: center; }
+.ev-date .d { font-family: 'Playfair Display', serif; font-size: 2.3rem; font-weight: 900; color: var(--terra); line-height: 1; }
+.ev-date .m { font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.ev-info h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--ink); }
+.ev-info .sub { font-style: italic; color: var(--muted); margin: .25rem 0 .8rem; }
+.tagrow { display: flex; flex-wrap: wrap; gap: .4rem; }
+.tag { padding: .25rem .75rem; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; border-radius: 3px; }
+.tag.style { background: rgba(196,83,42,.1); color: var(--terra); }
+.tag.loc { background: rgba(92,45,62,.1); color: var(--plum-lt); }
+.tag.time { background: rgba(212,160,48,.12); color: #a87c1a; }
+.ev-side { text-align: right; }
+.ev-side .price { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--ink); }
+.ev-side .cover { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.ev-side .btn { margin-top: .9rem; padding: .55rem 1.3rem; font-size: .78rem; }
+.ev-desc { grid-column: 2 / -1; font-size: 1rem; color: var(--ink-soft); line-height: 1.75; border-top: 1px solid rgba(30,16,10,.07); padding-top: 1rem; margin-top: .3rem; }
+.month-label { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.5rem; color: var(--plum); margin: 2.6rem 0 1rem; }
+.month-label:first-child { margin-top: 0; }
+.pay-note {
+  margin-top: 2.6rem; padding: 1.6rem 2rem;
+  background: var(--plum); color: var(--cream-dk);
+  font-family: 'Fraunces', serif; font-style: italic; font-size: 1.02rem; line-height: 1.8;
+}
+.pay-note strong { color: var(--gold-lt); font-style: normal; }
+@media (max-width: 920px) {
+  .events-layout { grid-template-columns: 1fr; }
+  .cal { position: static; }
+  .ev-row { grid-template-columns: 64px 1fr; }
+  .ev-side { grid-column: 2; text-align: left; }
+  .ev-desc { grid-column: 1 / -1; }
+}
+</style>
+</head>
+<body data-page="events">
+
+<header class="page-hero">
+  <img src="assets/watermark.png" class="watermark" alt="" aria-hidden="true">
+  <div class="page-hero-inner">
+    <p class="eyebrow">On the Calendar</p>
+    <h1>Upcoming <em>Events</em></h1>
+    <p class="lede">Every Monday, and then some. Class first, social after — beginners always welcome.</p>
+  </div>
+  <div class="wave-out">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#f7f0e6"/>
+    </svg>
+  </div>
+</header>
+
+<section class="section" style="padding-top:3.5rem">
+  <div class="container events-layout">
+    <aside class="cal reveal">
+      <div class="cal-head">
+        <button onclick="calNav(-1)" aria-label="Previous month">◀</button>
+        <h3 id="cal-title"></h3>
+        <button onclick="calNav(1)" aria-label="Next month">▶</button>
+      </div>
+      <div class="cal-body">
+        <div class="cal-dow"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div>
+        <div class="cal-days" id="cal-days"></div>
+      </div>
+    </aside>
+
+    <div id="events-list" class="reveal"></div>
+  </div>
+</section>
+
+
+<!-- YOUR FIRST MONDAY -->
+<section class="section" style="background:var(--plum)">
+  <div class="container" style="text-align:center">
+    <p class="eyebrow center reveal" style="color:var(--gold-lt)">New to Urbankiz Mondays?</p>
+    <h2 class="h2 reveal" style="color:var(--cream)">Your First <em style="color:var(--gold)">Monday</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem;margin-top:3rem">
+      <div class="reveal">
+        <div style="width:64px;height:64px;border-radius:50%;margin:0 auto 1.2rem;background:var(--terra);color:var(--cream);font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(30,16,10,.35)">1</div>
+        <h3 style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.4rem;color:var(--cream);margin-bottom:.7rem">Show Up</h3>
+        <p style="color:rgba(240,230,211,.65);line-height:1.8;max-width:280px;margin:0 auto">No partner, no experience needed. Arrive by 7:30 PM — Falls Church, VA. Come as you are.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.12s">
+        <div style="width:64px;height:64px;border-radius:50%;margin:0 auto 1.2rem;background:var(--terra);color:var(--cream);font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(30,16,10,.35)">2</div>
+        <h3 style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.4rem;color:var(--cream);margin-bottom:.7rem">Learn</h3>
+        <p style="color:rgba(240,230,211,.65);line-height:1.8;max-width:280px;margin:0 auto">A welcoming, structured class led by our resident instructors — a new topic every week.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.24s">
+        <div style="width:64px;height:64px;border-radius:50%;margin:0 auto 1.2rem;background:var(--terra);color:var(--cream);font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(30,16,10,.35)">3</div>
+        <h3 style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.4rem;color:var(--cream);margin-bottom:.7rem">Dance</h3>
+        <p style="color:rgba(240,230,211,.65);line-height:1.8;max-width:280px;margin:0 auto">Social starts at 8:30. Stay late, meet the community, and feel why we keep coming back.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="js/main.js"></script>
+<script>
+/* ── EVENT DATA — edit here, page renders automatically ──
+   To add a Drive flyer image: set driveId to the file's Drive ID. */
+const EVENTS = [
+  { id:'urbankiz-mondays', y:2026, mo:6, d:13, month:'July', title:'Urbankiz Mondays', sub:'Weekly class + social',
+    styles:['Urbankiz','Zouk'], loc:'Falls Church, VA', time:'7:30 PM · Social 8:30', price:'$15',
+    desc:'Our weekly signature night — structured class at 7:30, open social from 8:30. No partner or experience needed.' },
+  { y:2026, mo:6, d:20, month:'July', title:'Urbankiz Mondays', sub:'Weekly class + social',
+    styles:['Urbankiz','Tarraxo'], loc:'Falls Church, VA', time:'7:30 PM · Social 8:30', price:'$15',
+    desc:'Weekly class and social. Class topic announced on Instagram each week.' },
+  { y:2026, mo:6, d:27, month:'July', title:'Urbankiz Mondays', sub:'Weekly class + social',
+    styles:['Urbankiz','Douceur'], loc:'Falls Church, VA', time:'7:30 PM · Social 8:30', price:'$15',
+    desc:'Weekly class and social. Class topic announced on Instagram each week.' },
+  { y:2026, mo:7, d:3, month:'August', title:'Urbankiz Mondays', sub:'Weekly class + social',
+    styles:['Urbankiz','Zouk'], loc:'Falls Church, VA', time:'7:30 PM · Social 8:30', price:'$15',
+    desc:'Weekly class and social. Class topic announced on Instagram each week.' },
+  { id:'summer-showcase', y:2026, mo:7, d:8, month:'August', title:'★ Summer Showcase & Social 2026', sub:'Performances + Brazilian Zouk Social',
+    styles:['Showcase','Brazilian Zouk'], loc:'1st Stage Theater, Tysons VA', time:'6:30 PM – 12 AM', price:'Tix',
+    desc:'An evening celebrating creativity, artistry, and our local dance community. Social 6:30–8, performances at 8, social continues 9:30–midnight. In collaboration with District Zouk and Lunna Y Gabi.' },
+  { y:2026, mo:7, d:10, month:'August', title:'Urbankiz Mondays', sub:'Weekly class + social',
+    styles:['Urbankiz','Kizomba'], loc:'Falls Church, VA', time:'7:30 PM · Social 8:30', price:'$15',
+    desc:'Weekly class and social. Class topic announced on Instagram each week.' },
+  { y:2026, mo:7, d:17, month:'August', title:'Urbankiz Mondays', sub:'Weekly class + social',
+    styles:['Urbankiz','Zouk'], loc:'Falls Church, VA', time:'7:30 PM · Social 8:30', price:'$15',
+    desc:'Weekly class and social. Class topic announced on Instagram each week.' },
+  { y:2026, mo:7, d:24, month:'August', title:'Urbankiz Mondays', sub:'Weekly class + social',
+    styles:['Urbankiz','Tarraxo'], loc:'Falls Church, VA', time:'7:30 PM · Social 8:30', price:'$15',
+    desc:'Weekly class and social. Class topic announced on Instagram each week.' },
+  { y:2026, mo:7, d:31, month:'August', title:'Urbankiz Mondays', sub:'Weekly class + social',
+    styles:['Urbankiz','Douceur'], loc:'Falls Church, VA', time:'7:30 PM · Social 8:30', price:'$15',
+    desc:'Weekly class and social. Class topic announced on Instagram each week.' },
+];
+
+// render rows grouped by month
+const list = document.getElementById('events-list');
+let lastMonth = '';
+EVENTS.forEach(ev => {
+  if (ev.month !== lastMonth) {
+    list.insertAdjacentHTML('beforeend', `<h2 class="month-label">${ev.month} ${ev.y}</h2>`);
+    lastMonth = ev.month;
+  }
+  list.insertAdjacentHTML('beforeend', `
+    <article class="ev-row" ${ev.id ? `id="${ev.id}"` : ''}>
+      <div class="ev-date"><span class="d">${ev.d}</span><span class="m">${ev.month.slice(0,3)}</span></div>
+      <div class="ev-info">
+        <h3>${ev.title}</h3>
+        <p class="sub">${ev.sub}</p>
+        <div class="tagrow">
+          ${ev.styles.map(s=>`<span class="tag style">${s}</span>`).join('')}
+          <span class="tag loc">${ev.loc}</span>
+          <span class="tag time">${ev.time}</span>
+        </div>
+      </div>
+      <div class="ev-side">
+        <div class="price">${ev.price}</div>
+        <div class="cover">${ev.price==='$15'?'cover':''}</div>
+        <a class="btn btn-terra" href="${ev.id==='summer-showcase' ? 'https://www.danceplace.com/book/it/13321' : 'https://instagram.com/hartofzouk'}" ${ev.id==='summer-showcase' ? '' : 'target="_blank" rel="noopener"'}>${ev.id==='summer-showcase' ? 'Tickets' : 'RSVP'}</a>
+      </div>
+      <p class="ev-desc">${ev.desc}</p>
+    </article>`);
+});
+list.insertAdjacentHTML('beforeend', `
+  <div class="pay-note">
+    <strong>At the door:</strong> $15 cover for Monday socials — Venmo <strong>@Courtney_R</strong> or Cash App <strong>$courtmcruss</strong>. Cash welcome. Your first class? Come say hi — we'll take care of you.
+  </div>`);
+
+// calendar
+let cy = 2026, cm = 6; // July 2026
+const evMap = {};
+EVENTS.forEach(e => { (evMap[`${e.y}-${e.mo}`] ??= new Set()).add(e.d); });
+function renderCal() {
+  document.getElementById('cal-title').textContent =
+    new Date(cy, cm).toLocaleString('en-US', {month:'long', year:'numeric'});
+  const first = new Date(cy, cm, 1).getDay(), days = new Date(cy, cm+1, 0).getDate();
+  const evs = evMap[`${cy}-${cm}`] || new Set();
+  const today = new Date();
+  let html = '';
+  for (let i=0;i<first;i++) html += '<div></div>';
+  for (let d=1;d<=days;d++) {
+    const cls = [
+      evs.has(d) ? 'ev' : '',
+      (today.getFullYear()===cy && today.getMonth()===cm && today.getDate()===d) ? 'today' : ''
+    ].join(' ').trim();
+    html += `<div class="${cls}">${d}</div>`;
+  }
+  document.getElementById('cal-days').innerHTML = html;
+}
+function calNav(dir) { cm += dir; if (cm<0){cm=11;cy--;} if (cm>11){cm=0;cy++;} renderCal(); }
+renderCal();
+</script>
+</body>
+</html>

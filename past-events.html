@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Past Events — Hart of Zouk | 100+ Gatherings & Counting</title>
+<meta name="description" content="Over 100 dance events hosted across the DMV — browse the Hart of Zouk archive.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Fraunces:ital,wght@0,300;0,400;1,300;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.stats-band { background: var(--ink); display: flex; flex-wrap: wrap; }
+.stat { flex: 1; min-width: 160px; text-align: center; padding: 2.4rem 1rem; border-right: 1px solid rgba(240,230,211,.08); }
+.stat:last-child { border-right: none; }
+.stat .n { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900; color: var(--terra); line-height: 1; }
+.stat .n sup { font-size: 1.1rem; color: var(--gold); }
+.stat .l { font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-top: .4rem; }
+
+.filter-row { display: flex; gap: .6rem; flex-wrap: wrap; margin: 2.4rem 0; }
+.filter-row button {
+  padding: .5rem 1.3rem; border-radius: 24px; cursor: pointer;
+  font-family: 'Lora', serif; font-size: .85rem; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase;
+  border: 1px solid rgba(30,16,10,.2); background: transparent; color: var(--ink-soft);
+  transition: all .2s;
+}
+.filter-row button:hover { border-color: var(--terra); color: var(--terra); }
+.filter-row button.on { background: var(--terra); border-color: var(--terra); color: var(--cream); }
+
+.archive-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.4rem; }
+.pa-card {
+  background: #fff; border: 1px solid rgba(30,16,10,.08); overflow: hidden;
+  transition: transform .22s, box-shadow .22s;
+}
+.pa-card:hover { transform: translateY(-5px); box-shadow: 0 18px 44px rgba(92,45,62,.16); }
+.pa-img {
+  height: 150px; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--terra), var(--plum));
+  position: relative;
+}
+.pa-img img { width: 100%; height: 100%; object-fit: cover; }
+.pa-img .ph { font-size: 2.4rem; opacity: .85; }
+.pa-img .cat-chip {
+  position: absolute; top: .8rem; left: .8rem;
+  background: rgba(30,16,10,.65); color: var(--cream);
+  font-size: .62rem; letter-spacing: .16em; text-transform: uppercase;
+  padding: .3rem .7rem; border-radius: 3px;
+}
+.pa-body { padding: 1.2rem 1.3rem 1.4rem; }
+.pa-body .dt { font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+.pa-body h3 { font-family: 'Playfair Display', serif; font-size: 1.12rem; color: var(--ink); margin: .3rem 0 .25rem; }
+.pa-body .sub { font-size: .92rem; font-style: italic; color: var(--muted); }
+.load-more { text-align: center; margin-top: 2.6rem; }
+</style>
+</head>
+<body data-page="events">
+
+<header class="page-hero" style="background:var(--plum)">
+  <img src="assets/watermark.png" class="watermark" alt="" aria-hidden="true">
+  <div class="page-hero-inner">
+    <p class="eyebrow" style="color:rgba(240,230,211,.7)">The Archive</p>
+    <h1>100+ Events <em>&amp; Counting</em></h1>
+    <p class="lede">Every Monday tells a story. Browse the gatherings that built this community.</p>
+  </div>
+  <div class="wave-out">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#1e100a"/>
+    </svg>
+  </div>
+</header>
+
+<div class="stats-band">
+  <div class="stat"><div class="n">100<sup>+</sup></div><div class="l">Events Hosted</div></div>
+  <div class="stat"><div class="n">526</div><div class="l">Community</div></div>
+  <div class="stat"><div class="n">6<sup>+</sup></div><div class="l">DMV Locations</div></div>
+  <div class="stat"><div class="n">5</div><div class="l">Dance Styles</div></div>
+  <div class="stat"><div class="n">8<sup>+</sup></div><div class="l">Collaborators</div></div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <p class="eyebrow reveal">Browse</p>
+    <h2 class="h2 reveal">The <em>Moments</em></h2>
+
+    <div class="filter-row reveal" id="filters"></div>
+    <div class="archive-grid" id="archive"></div>
+    <div class="load-more reveal"><button class="btn btn-ghost-dark" onclick="loadMore()">Show More</button></div>
+  </div>
+</section>
+
+<script src="js/main.js"></script>
+<script>
+/* ── PAST EVENTS DATA — driveId: paste Google Drive file IDs to show real photos ── */
+const PAST = [
+  { date:'Mar 30, 2026', title:'Kizomba Festival After Party', sub:'Annie · Ken · Meli', cat:'Festival', driveId:null },
+  { date:'Mar 23, 2026', title:'Style — Own Your Space', sub:'Special Edition · Prajolita & Farrin', cat:'Special', driveId:null },
+  { date:'Mar 9, 2026',  title:'Urbankiz Mondays', sub:'Tarraxo Mechanics Pt. 2 · Jonay', cat:'Weekly', driveId:null },
+  { date:'Mar 8, 2026',  title:"International Women's Day Gathering", sub:'Bryant Street Market · pre-social', cat:'Gathering', driveId:null },
+  { date:'Mar 2, 2026',  title:'Urbankiz Mondays', sub:'Tarraxo Mechanics Pt. 1 · Jonay & Oz', cat:'Weekly', driveId:null },
+  { date:'Feb 14, 2026', title:"Valentine's Social", sub:'Special Edition', cat:'Special', driveId:null },
+  { date:'Feb 2, 2026',  title:'Urbankiz Mondays', sub:'Jonay · Oz', cat:'Weekly', driveId:null },
+  { date:'Jan 25, 2026', title:'Regency Garden Ball — After Party', sub:'with Open Window Events', cat:'Festival', driveId:null },
+  { date:'Dec 2025',     title:'Year in Review Social', sub:'From big milestones to new adventures', cat:'Gathering', driveId:null },
+  { date:'Nov 2025',     title:'Fall Festival Social', sub:'DC Metro', cat:'Festival', driveId:null },
+  { date:'Oct 2025',     title:'Urbankiz Mondays', sub:'Leg Lifts · Jonay & Laura', cat:'Weekly', driveId:null },
+  { date:'Sep 2025',     title:'Refining Crosses Pt. 2', sub:'Jonay · Farrin', cat:'Weekly', driveId:null },
+];
+const cats = ['All', ...new Set(PAST.map(p=>p.cat))];
+let activeCat = 'All', shown = 8;
+
+const fEl = document.getElementById('filters');
+cats.forEach(c => fEl.insertAdjacentHTML('beforeend',
+  `<button class="${c==='All'?'on':''}" onclick="setCat('${c}',this)">${c}</button>`));
+
+function setCat(c, btn) {
+  activeCat = c; shown = 8;
+  document.querySelectorAll('.filter-row button').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  render();
+}
+function loadMore(){ shown += 8; render(); }
+function render() {
+  const filtered = PAST.filter(p => activeCat==='All' || p.cat===activeCat);
+  document.getElementById('archive').innerHTML = filtered.slice(0, shown).map(p => `
+    <article class="pa-card">
+      <div class="pa-img">
+        ${p.driveId ? `<img src="${driveUrl(p.driveId)}" alt="${p.title}" loading="lazy">` : `<span class="ph">♥</span>`}
+        <span class="cat-chip">${p.cat}</span>
+      </div>
+      <div class="pa-body">
+        <span class="dt">${p.date}</span>
+        <h3>${p.title}</h3>
+        <p class="sub">${p.sub}</p>
+      </div>
+    </article>`).join('');
+  document.querySelector('.load-more').style.display = shown >= filtered.length ? 'none' : 'block';
+}
+render();
+</script>
+</body>
+</html>

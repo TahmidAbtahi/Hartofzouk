@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Hart of Zouk | Studio Rental & Event Design</title>
+<meta name="description" content="Studio rental in Falls Church VA, dance event production, and full event decor & design through Open Window Events.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Fraunces:ital,wght@0,300;0,400;1,300;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.svc-block {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  padding: 4rem 0;
+}
+.svc-block + .svc-block { border-top: 1px solid rgba(30,16,10,.08); }
+.svc-block:nth-child(even) .svc-visual { order: 2; }
+.svc-visual {
+  aspect-ratio: 4/3; border-radius: 6px; position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.svc-visual .big { font-size: 4.5rem; }
+.svc-visual.v1 { background: linear-gradient(140deg, var(--terra), var(--plum)); }
+.svc-visual.v2 { background: linear-gradient(140deg, var(--plum), var(--ink)); }
+.svc-visual.v3 { background: linear-gradient(140deg, var(--gold), var(--terra)); }
+.svc-visual::after {
+  content: ''; position: absolute; right: -16px; bottom: -16px;
+  width: 90px; height: 90px;
+  border-right: 3px solid var(--gold); border-bottom: 3px solid var(--gold);
+}
+.svc-copy h2 { font-family: 'Playfair Display', serif; font-size: 2.1rem; font-weight: 900; color: var(--ink); margin-bottom: 1rem; }
+.svc-copy h2 em { font-style: italic; color: var(--terra); font-weight: 400; }
+.svc-copy p { font-size: 1.08rem; line-height: 1.85; color: var(--ink-soft); margin-bottom: 1rem; }
+.svc-list { list-style: none; margin: 1.2rem 0 1.6rem; }
+.svc-list li { padding: .45rem 0 .45rem 1.8rem; position: relative; font-size: 1.02rem; color: var(--muted); }
+.svc-list li::before { content: '♥'; position: absolute; left: 0; color: var(--terra); font-size: .85rem; }
+.rate-chip {
+  display: inline-block; padding: .4rem 1.1rem; margin: 0 .4rem .5rem 0;
+  border: 1px solid rgba(196,83,42,.35); border-radius: 20px;
+  font-size: .85rem; color: var(--terra); font-weight: 600;
+}
+
+/* booking strip */
+.book-strip { background: var(--terra); text-align: center; position: relative; overflow: hidden; }
+.book-strip .watermark-bg { position: absolute; left: -90px; top: -60px; width: 360px; opacity: .08; }
+.book-strip .h2 { color: var(--cream); }
+.book-strip p { color: rgba(240,230,211,.78); font-family: 'Fraunces', serif; font-style: italic; font-size: 1.12rem; margin: .9rem auto 1.8rem; max-width: 540px; }
+@media (max-width: 920px) {
+  .svc-block { grid-template-columns: 1fr; gap: 2rem; }
+  .svc-block:nth-child(even) .svc-visual { order: 0; }
+}
+</style>
+</head>
+<body data-page="services">
+
+<header class="page-hero" style="background:var(--plum)">
+  <img src="assets/watermark.png" class="watermark" alt="" aria-hidden="true">
+  <div class="page-hero-inner">
+    <p class="eyebrow" style="color:rgba(240,230,211,.7)">Beyond the Dance Floor</p>
+    <h1>Our <em>Services</em></h1>
+    <p class="lede">Events, space, and design — three ways we bring people together.</p>
+  </div>
+  <div class="wave-out">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#f7f0e6"/>
+    </svg>
+  </div>
+</header>
+
+<section class="section" style="padding-top:2rem">
+  <div class="container">
+
+    <div class="svc-block reveal">
+      <div class="svc-visual v1"><span class="big">💃</span></div>
+      <div class="svc-copy">
+        <p class="eyebrow">01 — Events</p>
+        <h2>Dance Events <em>&amp; Socials</em></h2>
+        <p>Our signature <strong>Urbankiz Mondays</strong> run weekly in Falls Church — a structured class followed by open social dancing. Beyond Mondays, we produce festival after-parties, themed special editions, Jack &amp; Jill competitions, and private date-night workshops.</p>
+        <ul class="svc-list">
+          <li>Weekly classes with rotating resident instructors</li>
+          <li>Festival partnerships across the DMV</li>
+          <li>Private &amp; couples workshops by request</li>
+        </ul>
+        <span class="rate-chip">$15 Monday cover</span>
+        <span class="rate-chip">Workshops by inquiry</span><br>
+        <a href="events.html" class="btn btn-terra" style="margin-top:1.2rem">See the Schedule</a>
+      </div>
+    </div>
+
+    <div class="svc-block reveal">
+      <div class="svc-visual v2"><span class="big">🏛</span></div>
+      <div class="svc-copy">
+        <p class="eyebrow">02 — Space</p>
+        <h2>Studio <em>Rental</em></h2>
+        <p>A warm, welcoming studio in <strong>Falls Church, VA 22046</strong> available for your own programming — dance classes, rehearsals, photo and video shoots, small workshops, and private gatherings.</p>
+        <ul class="svc-list">
+          <li>Open floor with quality sound system</li>
+          <li>Hourly &amp; recurring weekly rates</li>
+          <li>Evening &amp; weekend availability</li>
+        </ul>
+        <span class="rate-chip">Hourly rates</span>
+        <span class="rate-chip">Recurring discounts</span><br>
+        <a href="contact.html" class="btn btn-terra" style="margin-top:1.2rem">Inquire About the Space</a>
+      </div>
+    </div>
+
+    <div class="svc-block reveal">
+      <div class="svc-visual v3"><span class="big">🎨</span></div>
+      <div class="svc-copy">
+        <p class="eyebrow">03 — Design</p>
+        <h2>Event Decor <em>&amp; Design</em></h2>
+        <p>Through our sister studio <strong>Open Window Events</strong>, we offer full event design — immersive theming, decor, styling, and atmosphere for celebrations, balls, and gatherings across DC, Maryland, and Virginia.</p>
+        <ul class="svc-list">
+          <li>Immersive theming &amp; styling</li>
+          <li>Full-service decor production</li>
+          <li>Collaborative design consultations</li>
+        </ul>
+        <a href="http://www.openwindowevents.com" target="_blank" rel="noopener" class="btn btn-ghost-dark" style="margin-top:1.2rem">Visit Open Window Events ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section book-strip">
+  <img src="assets/watermark.png" class="watermark-bg" alt="" aria-hidden="true">
+  <div class="container">
+    <h2 class="h2 reveal">Have something in mind?</h2>
+    <p class="reveal">Studio bookings, private events, collaborations — tell us what you're dreaming up.</p>
+    <a href="contact.html" class="btn btn-cream reveal">Let's Connect</a>
+  </div>
+</section>
+
+<script src="js/main.js"></script>
+</body>
+</html>

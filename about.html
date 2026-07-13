@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Hart of Zouk | Our Story & Community</title>
+<meta name="description" content="The story behind Hart of Zouk — a DMV dance collective curated by @darlingdre, built on connection, rhythm, and community.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Fraunces:ital,wght@0,300;0,400;1,300;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.story-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 5rem; align-items: center; }
+.story-visual { position: relative; }
+.story-visual img { width: 82%; border-radius: 50%; margin: 0 auto; box-shadow: 0 26px 70px rgba(196,83,42,.25); }
+.story-visual::before {
+  content: ''; position: absolute; left: -4%; top: -6%;
+  width: 120px; height: 120px;
+  border-left: 3px solid var(--gold); border-top: 3px solid var(--gold);
+}
+.story p { font-size: 1.12rem; line-height: 1.9; color: var(--ink-soft); margin-bottom: 1.1rem; }
+.story p strong { color: var(--terra); }
+.story .pull {
+  font-family: 'Fraunces', serif; font-style: italic; font-size: 1.35rem; color: var(--plum);
+  border-left: 3px solid var(--gold); padding-left: 1.4rem; margin: 1.8rem 0;
+}
+
+/* values */
+.values { background: var(--ink); position: relative; overflow: hidden; }
+.values .watermark-bg { position: absolute; right: -110px; bottom: -90px; width: 440px; opacity: .05; }
+.values .h2 { color: var(--cream); }
+.values-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-top: 3rem; text-align: center; }
+.value { padding: 1.6rem .8rem; }
+.value .ic {
+  width: 70px; height: 70px; border-radius: 50%; margin: 0 auto 1rem;
+  border: 1px solid rgba(212,160,48,.4);
+  display: flex; align-items: center; justify-content: center; font-size: 1.7rem;
+}
+.value h3 { font-family: 'Lora', serif; font-size: .85rem; font-weight: 700; letter-spacing: .26em; text-transform: uppercase; color: var(--gold-lt); }
+
+/* styles taught */
+.styles-band { background: var(--sand); }
+.style-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 3rem; }
+.style-card {
+  background: #fff; border: 1px solid rgba(30,16,10,.08);
+  border-left: 4px solid var(--terra);
+  padding: 1.8rem;
+  transition: transform .2s, box-shadow .2s;
+}
+.style-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(92,45,62,.13); }
+.style-card h3 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.3rem; color: var(--terra); margin-bottom: .6rem; }
+.style-card p { font-size: 1rem; line-height: 1.75; color: var(--muted); }
+
+/* team */
+.team { background: var(--plum); position: relative; overflow: hidden; }
+.team .h2 { color: var(--cream); }
+.team .eyebrow { color: var(--gold-lt); }
+.team .eyebrow::before { background: var(--gold-lt); }
+.team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 2rem; margin-top: 3rem; }
+.member { text-align: center; }
+.member .av {
+  width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 1rem;
+  background: linear-gradient(140deg, var(--terra), var(--ink));
+  border: 2px solid rgba(212,160,48,.45);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif; font-style: italic; font-size: 2rem; color: var(--cream);
+  transition: border-color .25s, transform .25s;
+}
+.member:hover .av { border-color: var(--gold); transform: scale(1.05); }
+.member h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--cream); }
+.member p { font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(240,230,211,.55); margin-top: .25rem; }
+
+/* partners */
+.partners { text-align: center; }
+.partner-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem; margin-top: 3rem; }
+.partner {
+  width: 150px; padding: 1.4rem 1rem;
+  background: #fff; border: 1px solid rgba(30,16,10,.1); border-radius: 4px;
+  transition: transform .2s, border-color .2s, box-shadow .2s;
+}
+.partner:hover { transform: translateY(-4px); border-color: var(--terra); box-shadow: 0 12px 32px rgba(196,83,42,.14); }
+.partner .pc {
+  width: 48px; height: 48px; border-radius: 50%; margin: 0 auto .7rem;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; color: #fff;
+}
+.partner h4 { font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+.partner span { font-size: .72rem; color: var(--muted); }
+
+@media (max-width: 920px) {
+  .story-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .values-row { grid-template-columns: repeat(2, 1fr); }
+  .style-cards { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body data-page="about">
+
+<header class="page-hero">
+  <img src="assets/watermark.png" class="watermark" alt="" aria-hidden="true">
+  <div class="page-hero-inner">
+    <p class="eyebrow">Our Story</p>
+    <h1>The Hart Behind <em>the Movement</em></h1>
+    <p class="lede">A community built one Monday at a time.</p>
+  </div>
+  <div class="wave-out">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#f7f0e6"/>
+    </svg>
+  </div>
+</header>
+
+<!-- STORY -->
+<section class="section">
+  <div class="container story-grid">
+    <div class="story-visual reveal">
+      <img src="assets/logo.png" alt="Hart of Zouk emblem">
+    </div>
+    <div class="story reveal">
+      <p class="eyebrow">Welcome Home</p>
+      <h2 class="h2">Built on Connection,<br><em>Carried by Rhythm</em></h2>
+      <p style="margin-top:1.4rem">Hart of Zouk began with a simple belief: that the DMV deserved a dance space that felt like <strong>home</strong>. Not just a venue — a community. Curated by <strong>@darlingdre</strong>, every gathering is designed with intention, warmth, and an open door.</p>
+      <p class="pull">"We don't prescribe a single path. We hold the floor so you can find yours."</p>
+      <p>From weekly <strong>Urbankiz Mondays</strong> in Falls Church to festival after-parties and intimate date-night workshops, we've hosted over <strong>100 events</strong> across Washington DC, Northern Virginia, and Maryland — and we're just getting started.</p>
+      <p>Alongside the dancing, we offer <strong>studio rental</strong> and full <strong>event decor &amp; design</strong> through our sister studio, Open Window Events.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section values">
+  <img src="assets/watermark.png" class="watermark-bg" alt="" aria-hidden="true">
+  <div class="container">
+    <p class="eyebrow center reveal" style="color:var(--gold-lt)">What We Hold</p>
+    <h2 class="h2 reveal" style="text-align:center">Our <em style="color:var(--gold)">Values</em></h2>
+    <div class="values-row">
+      <div class="value reveal"><div class="ic">♥</div><h3>Connection</h3></div>
+      <div class="value reveal" style="transition-delay:.08s"><div class="ic">🎶</div><h3>Musicality</h3></div>
+      <div class="value reveal" style="transition-delay:.16s"><div class="ic">🤝</div><h3>Community</h3></div>
+      <div class="value reveal" style="transition-delay:.24s"><div class="ic">✨</div><h3>Elegance</h3></div>
+      <div class="value reveal" style="transition-delay:.32s"><div class="ic">🌊</div><h3>Flow</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- STYLES -->
+<section class="section styles-band">
+  <div class="container">
+    <p class="eyebrow reveal">On the Floor</p>
+    <h2 class="h2 reveal">The Styles <em>We Dance</em></h2>
+    <div class="style-cards">
+      <div class="style-card reveal"><h3>Urbankiz</h3><p>The modern evolution of kizomba — urban, musical, deeply connected. Our Monday signature.</p></div>
+      <div class="style-card reveal" style="transition-delay:.08s"><h3>Brazilian Zouk</h3><p>Flowing, wave-like movement born in Brazil. Head movement, body isolation, pure expression.</p></div>
+      <div class="style-card reveal" style="transition-delay:.16s"><h3>Tarraxo</h3><p>Grounded, intimate, rhythm-forward. Small movements, big feeling.</p></div>
+      <div class="style-card reveal" style="transition-delay:.24s"><h3>Douceur</h3><p>Softness as a practice — slow, gentle partnering that prioritizes sensation over steps.</p></div>
+      <div class="style-card reveal" style="transition-delay:.32s"><h3>Kizomba</h3><p>The Angolan root of it all. Walking embrace, musical conversation, timeless connection.</p></div>
+      <div class="style-card reveal" style="transition-delay:.4s"><h3>Tarraxinha</h3><p>The percussive cousin of tarraxo — playful isolations layered over rhythm.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section team">
+  <div class="container">
+    <p class="eyebrow reveal">The People</p>
+    <h2 class="h2 reveal">Instructors <em style="color:var(--gold)">&amp; DJs</em></h2>
+    <div class="team-grid" id="team"></div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="section partners">
+  <div class="container">
+    <p class="eyebrow center reveal">Side by Side</p>
+    <h2 class="h2 reveal">Community <em>Partners</em></h2>
+    <div class="partner-row" id="partners"></div>
+  </div>
+</section>
+
+<script src="js/main.js"></script>
+<script>
+const TEAM = [
+  { n:'Darlingdre', r:'Founder & Curator', i:'D' },
+  { n:'Annie', r:'Instructor', i:'A' },
+  { n:'Jonay', r:'Instructor · @jonay.dance', i:'J' },
+  { n:'Prajolita', r:'Instructor', i:'P' },
+  { n:'Laura', r:'Instructor', i:'L' },
+  { n:'Meli', r:'DJ', i:'M' },
+  { n:'Farrin', r:'DJ', i:'F' },
+  { n:'Oz', r:'DJ · @ozzy_kiz', i:'O' },
+  { n:'Ken', r:'Guest Artist', i:'K' },
+];
+document.getElementById('team').innerHTML = TEAM.map((t,i) => `
+  <div class="member reveal" style="transition-delay:${i*.06}s">
+    <div class="av">${t.i}</div><h3>${t.n}</h3><p>${t.r}</p>
+  </div>`).join('');
+
+const PARTNERS = [
+  { n:'UKG', s:'Urbankiz Mondays', c:'#c4532a', i:'U' },
+  { n:'DC Kiz Community', s:'@dc.kiz.community', c:'#5c2d3e', i:'D' },
+  { n:'Cherry Blossom Kizomba', s:'Annual Festival', c:'#a8401a', i:'C' },
+  { n:'Open Window Events', s:'Event Design', c:'#3a1e14', i:'O' },
+  { n:'District Zouk', s:'Community', c:'#7a3d52', i:'Z' },
+  { n:'HB Media', s:'Media Partner', c:'#1e100a', i:'H' },
+];
+document.getElementById('partners').innerHTML = PARTNERS.map((p,i) => `
+  <div class="partner reveal" style="transition-delay:${i*.06}s">
+    <div class="pc" style="background:${p.c}">${p.i}</div>
+    <h4>${p.n}</h4><span>${p.s}</span>
+  </div>`).join('');
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Hart of Zouk | Life on the Dance Floor</title>
+<meta name="description" content="Photos from Hart of Zouk events — weekly socials, festivals, and community moments across the DMV.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Fraunces:ital,wght@0,300;0,400;1,300;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* rotating strip */
+.strip-zone { background: var(--ink); padding: 3.6rem 0; overflow: hidden; }
+.strip { display: flex; gap: 1rem; width: max-content; animation: slide 38s linear infinite; padding: 0 1rem; }
+.strip:hover { animation-play-state: paused; }
+@keyframes slide { to { transform: translateX(-50%); } }
+.strip-card {
+  width: 290px; height: 200px; flex-shrink: 0; position: relative;
+  overflow: hidden; border-radius: 4px; cursor: pointer;
+  transition: transform .3s;
+}
+.strip-card:hover { transform: scale(1.04) translateY(-4px); z-index: 2; }
+.strip-card img { width: 100%; height: 100%; object-fit: cover; }
+.strip-card .ph {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem;
+  background: linear-gradient(135deg, var(--terra), var(--plum));
+  color: rgba(240,230,211,.75); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase;
+}
+.strip-card .ph::before { content: '📸'; font-size: 2rem; }
+
+/* masonry grid */
+.masonry { columns: 3 280px; column-gap: 1.2rem; }
+.m-item { break-inside: avoid; margin-bottom: 1.2rem; position: relative; overflow: hidden; border-radius: 4px; cursor: pointer; }
+.m-item img { width: 100%; transition: transform .35s; }
+.m-item:hover img { transform: scale(1.05); }
+.m-item .ph {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem;
+  background: linear-gradient(150deg, var(--plum), var(--ink));
+  color: rgba(240,230,211,.7); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+}
+.m-item .ph::before { content: '♥'; font-size: 1.8rem; color: var(--terra); }
+.m-item .cap {
+  position: absolute; inset: auto 0 0 0;
+  background: linear-gradient(to top, rgba(30,16,10,.85), transparent);
+  color: var(--cream); padding: 2rem 1rem .9rem;
+  font-family: 'Fraunces', serif; font-style: italic; font-size: .95rem;
+  opacity: 0; transition: opacity .3s;
+}
+.m-item:hover .cap { opacity: 1; }
+
+.drive-note {
+  margin-top: 3rem; padding: 1.8rem 2.2rem;
+  background: var(--plum); display: flex; gap: 1.4rem; align-items: flex-start;
+}
+.drive-note .ic { font-size: 1.8rem; }
+.drive-note h3 { font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold-lt); margin-bottom: .4rem; }
+.drive-note p { color: var(--cream-dk); font-size: 1rem; line-height: 1.75; }
+.drive-note code { background: rgba(30,16,10,.4); padding: .1rem .5rem; border-radius: 3px; font-size: .85rem; color: var(--gold-lt); }
+</style>
+</head>
+<body data-page="gallery">
+
+<header class="page-hero">
+  <img src="assets/watermark.png" class="watermark" alt="" aria-hidden="true">
+  <div class="page-hero-inner">
+    <p class="eyebrow">Community Moments</p>
+    <h1>Life at Hart <em>of Zouk</em></h1>
+    <p class="lede">The floor, the people, the nights we keep coming back for.</p>
+  </div>
+  <div class="wave-out">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#1e100a"/>
+    </svg>
+  </div>
+</header>
+
+<!-- auto-rotating strip -->
+<div class="strip-zone">
+  <div class="strip" id="strip"></div>
+</div>
+
+<!-- masonry archive -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow reveal">The Collection</p>
+    <h2 class="h2 reveal">Every Frame a <em>Feeling</em></h2>
+    <div class="masonry reveal" id="masonry" style="margin-top:2.6rem"></div>
+
+    <div class="drive-note reveal">
+      <span class="ic">📁</span>
+      <div>
+        <h3>Fed by Google Drive</h3>
+        <p>This gallery pulls images straight from the community Drive folder. Drop a photo in — it appears here. To connect: open <code>gallery.html</code>, find the <code>GALLERY</code> list, and paste each photo's Drive file ID. No other code changes needed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="js/main.js"></script>
+<script>
+/* ── GALLERY DATA — paste Google Drive file IDs into driveId ──
+   Folder: drive.google.com/drive/folders/19-mGGLRjN5FAXvtUSUY1q88M4OcwEPbu */
+const GALLERY = [
+  { driveId:null, cap:'Urbankiz Mondays', h:240 },
+  { driveId:null, cap:'Community Vibes', h:320 },
+  { driveId:null, cap:'Kizomba Festival After Party', h:200 },
+  { driveId:null, cap:'Sweet Moments Workshop', h:280 },
+  { driveId:null, cap:'Dance Class', h:230 },
+  { driveId:null, cap:'Social Dancing', h:340 },
+  { driveId:null, cap:'Regency Garden Ball', h:210 },
+  { driveId:null, cap:"Women's Day Gathering", h:300 },
+  { driveId:null, cap:'Year in Review 2025', h:250 },
+  { driveId:null, cap:'Birthday Social', h:270 },
+  { driveId:null, cap:'Instructor Demo', h:220 },
+  { driveId:null, cap:'The Whole Crew', h:310 },
+];
+
+// rotating strip (duplicate for seamless loop)
+document.getElementById('strip').innerHTML = [...GALLERY, ...GALLERY].map(g => `
+  <div class="strip-card">
+    ${g.driveId ? `<img src="${driveUrl(g.driveId)}" alt="${g.cap}" loading="lazy">` : `<div class="ph">${g.cap}</div>`}
+  </div>`).join('');
+
+// masonry
+document.getElementById('masonry').innerHTML = GALLERY.map(g => `
+  <figure class="m-item">
+    ${g.driveId
+      ? `<img src="${driveUrl(g.driveId)}" alt="${g.cap}" loading="lazy">`
+      : `<div class="ph" style="height:${g.h}px">${g.cap}</div>`}
+    <figcaption class="cap">${g.cap}</figcaption>
+  </figure>`).join('');
+</script>
+</body>
+</html>
