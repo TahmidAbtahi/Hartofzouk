@@ -47,3 +47,22 @@ showcase.html with a ticket link button.
 Past Events now routes to Instagram (@hartofzouk) as a placeholder.
 Swap the URL in js/main.js (two spots) when the archive page is ready —
 past-events.html is still included in the folder, fully built.
+
+## Showcase hero video optimization
+The showcase page tries assets/showcase-hero.webm first, then .mp4, then falls back
+to the static hero. To create both from the downloaded Higgsfield mp4:
+  ffmpeg -i input.mp4 -an -c:v libx264 -crf 26 -preset slow -movflags +faststart assets/showcase-hero.mp4
+  ffmpeg -i input.mp4 -an -c:v libvpx-vp9 -crf 36 -b:v 0 assets/showcase-hero.webm
+Result: ~0.8-1.5MB webm / ~1.5-2.5MB mp4 for a 5s 720p clip. The page uses
+preload="metadata" + plays only in view, so it will not slow initial page load.
+(You can also upload the mp4 here in chat and the files will be converted for you.)
+
+## Client self-service gallery (no code needed)
+1. On github.com, open the repo → assets → gallery
+2. "Add file" → "Upload files" → drag photos in → Commit
+3. Within ~1 minute the build-gallery Action regenerates the photo list
+   and the Gallery page shows them automatically (newest first).
+Filenames become captions: "summer-showcase-finale.jpg" → "Summer Showcase Finale".
+To reconnect Gallery in the site nav when ready: in js/main.js add back
+  <li><a href="gallery.html" data-page="gallery">Gallery</a></li>
+Tip: resize photos to ~1600px before upload (phones export 4-8MB originals).

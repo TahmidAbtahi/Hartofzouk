@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urbankiz Mondays — Hart of Zouk | Weekly Class & Social, Falls Church VA</title>
+<meta name="description" content="Urbankiz Mondays — the DMV's weekly urbankiz, zouk & tarraxo night. Class 7:30 PM, social 8:30 PM, Falls Church VA. Beginners welcome, no partner needed. $15.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* hero */
+.uk-hero {
+  min-height: 88vh; background: var(--terra);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 8rem 3rem 6rem; position: relative; overflow: hidden;
+}
+.uk-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 55% 75% at 82% 35%, rgba(92,45,62,.5) 0%, transparent 65%),
+    radial-gradient(ellipse 35% 50% at 8% 90%, rgba(30,16,10,.3) 0%, transparent 60%);
+}
+.uk-hero-inner { position: relative; max-width: 1200px; margin: 0 auto; width: 100%; }
+.uk-kicker {
+  display: inline-flex; align-items: center; gap: .8rem;
+  font-size: .8rem; letter-spacing: .3em; text-transform: uppercase;
+  color: rgba(240,230,211,.75); margin-bottom: 1.4rem;
+}
+.uk-kicker::before { content: '♥'; color: var(--gold-lt); }
+.uk-hero h1 {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  font-size: clamp(3rem, 7.5vw, 6rem); line-height: .98; color: var(--cream);
+}
+.uk-hero h1 em { display: block; font-style: italic; color: var(--gold); font-weight: 400; }
+.uk-sub { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.2rem; color: rgba(240,230,211,.8); margin: 1.2rem 0 2rem; max-width: 520px; }
+.uk-facts { display: flex; flex-wrap: wrap; gap: .8rem; margin-bottom: 2.2rem; }
+.uk-fact {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .55rem 1.2rem; border: 1px solid rgba(240,230,211,.3); border-radius: 24px;
+  font-size: .9rem; color: var(--cream);
+}
+/* rhythm of the night */
+.uk-night { background: var(--sand); }
+.night-flow { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+.nf-card { background: #fff; border-top: 4px solid var(--terra); padding: 2.2rem 1.8rem; border: 1px solid rgba(30,16,10,.08); border-top: 4px solid var(--terra); }
+.nf-time { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 900; color: var(--terra); }
+.nf-card h3 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.3rem; color: var(--ink); margin: .4rem 0 .6rem; }
+.nf-card p { color: var(--muted); line-height: 1.8; }
+/* first monday */
+.uk-first { background: var(--plum); text-align: center; }
+.fm-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 2rem; margin-top: 3rem; }
+.fm-num {
+  width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 1.2rem;
+  background: var(--terra); color: var(--cream);
+  font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 26px rgba(30,16,10,.35);
+}
+.fm-grid h3 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.4rem; color: var(--cream); margin-bottom: .7rem; }
+.fm-grid p { color: rgba(240,230,211,.65); line-height: 1.8; max-width: 280px; margin: 0 auto; }
+/* details band */
+.uk-details { background: var(--ink); }
+.det-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.6rem; align-items: start; }
+.det-card { background: rgba(240,230,211,.05); border: 1px solid rgba(240,230,211,.1); padding: 2rem; }
+.det-card h3 { font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold-lt); font-size: 1.3rem; margin-bottom: 1rem; }
+.det-row { display: flex; gap: .9rem; padding: .55rem 0; color: rgba(240,230,211,.75); font-size: 1rem; }
+.det-row span:first-child { color: var(--terra); flex-shrink: 0; }
+.styles-row { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .6rem; }
+.st-chip { padding: .35rem .95rem; border: 1px solid rgba(212,160,48,.4); border-radius: 20px; font-size: .82rem; color: var(--cream-dk); }
+@media (max-width: 920px) {
+  .uk-hero { padding: 7rem 1.2rem 4rem; }
+  .night-flow { grid-template-columns: 1fr; }
+  .det-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body data-page="events">
+
+<header class="uk-hero">
+  <div class="uk-hero-inner">
+    <p class="uk-kicker">Every Monday · Falls Church, VA</p>
+    <h1>Urbankiz <em>Mondays</em></h1>
+    <p class="uk-sub">The DMV's warmest weekly dance night — one class, one social, one community. No partner, no experience needed.</p>
+    <div class="uk-facts">
+      <span class="uk-fact">🕢 Class 7:30 PM</span>
+      <span class="uk-fact">🌙 Social 8:30 PM</span>
+      <span class="uk-fact">💵 $15 cover</span>
+      <span class="uk-fact">📍 Falls Church, VA</span>
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="events.html" class="btn btn-cream">This Month's Schedule</a>
+      <a href="https://instagram.com/hartofzouk" target="_blank" rel="noopener" class="btn btn-ghost-light">RSVP on Instagram</a>
+    </div>
+  </div>
+  <div class="wave-out">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#f7f0e6"/>
+    </svg>
+  </div>
+</header>
+
+<!-- THE RHYTHM OF THE NIGHT -->
+<section class="section uk-night">
+  <div class="container">
+    <p class="eyebrow reveal">How the Night Flows</p>
+    <h2 class="h2 reveal">One Monday, <em>Three Acts</em></h2>
+    <div class="night-flow">
+      <div class="nf-card reveal">
+        <div class="nf-time">7:30</div>
+        <h3>The Class</h3>
+        <p>A structured lesson from our rotating resident instructors — a new topic every week, from connection fundamentals to styling and musicality. Topics announced weekly on Instagram.</p>
+      </div>
+      <div class="nf-card reveal" style="transition-delay:.1s">
+        <div class="nf-time">8:30</div>
+        <h3>The Social</h3>
+        <p>The lights go warm and the floor opens. Urbankiz, douceur, tarraxo, kizomba, tarraxinha — dance with everyone, at your own pace.</p>
+      </div>
+      <div class="nf-card reveal" style="transition-delay:.2s">
+        <div class="nf-time">Late</div>
+        <h3>The Community</h3>
+        <p>Stay for the conversations between songs. This is where the DMV dance family happens — one Monday at a time, 100+ events strong.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- YOUR FIRST MONDAY -->
+<section class="section uk-first">
+  <div class="container">
+    <p class="eyebrow center reveal" style="color:var(--gold-lt)">New to Urbankiz Mondays?</p>
+    <h2 class="h2 reveal" style="color:var(--cream)">Your First <em style="color:var(--gold)">Monday</em></h2>
+    <div class="fm-grid">
+      <div class="reveal">
+        <div class="fm-num">1</div>
+        <h3>Show Up</h3>
+        <p>No partner, no experience needed. Arrive by 7:30 PM — Falls Church, VA. Come as you are.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.12s">
+        <div class="fm-num">2</div>
+        <h3>Learn</h3>
+        <p>A welcoming, structured class led by our resident instructors — a new topic every week.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.24s">
+        <div class="fm-num">3</div>
+        <h3>Dance</h3>
+        <p>Social starts at 8:30. Stay late, meet the community, and feel why we keep coming back.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOOD TO KNOW -->
+<section class="section uk-details">
+  <div class="container">
+    <p class="eyebrow reveal" style="color:var(--gold-lt)">Good to Know</p>
+    <h2 class="h2 reveal" style="color:var(--cream)">The <em style="color:var(--gold)">Details</em></h2>
+    <div class="det-grid">
+      <div class="det-card reveal">
+        <h3>At the Door</h3>
+        <div class="det-row"><span>👟</span><span>Wear comfortable shoes you can pivot in — no dress code, come as you are</span></div>
+        <div class="det-row"><span>🚗</span><span>Free parking on site · Falls Church, VA 22046</span></div>
+        <div class="det-row"><span>💬</span><span>First time? Say hi at the door — we'll introduce you around</span></div>
+      </div>
+      <div class="det-card reveal" style="transition-delay:.1s">
+        <h3>Styles on the Floor</h3>
+        <p style="color:rgba(240,230,211,.65);line-height:1.8;margin-bottom:.6rem">Every Monday blends the family of connected urban dances:</p>
+        <div class="styles-row">
+          <span class="st-chip">Urbankiz</span>
+          <span class="st-chip">Brazilian Zouk</span>
+          <span class="st-chip">Douceur</span>
+          <span class="st-chip">Tarraxo</span>
+          <span class="st-chip">Kizomba</span>
+          <span class="st-chip">Tarraxinha</span>
+        </div>
+        <div class="det-row" style="margin-top:1.2rem"><span>📆</span><span>Weekly class topics posted on <a href="https://instagram.com/hartofzouk" target="_blank" rel="noopener" style="color:var(--gold-lt)">@hartofzouk</a></span></div>
+        <div class="det-row"><span>🗓</span><span><a href="events.html" style="color:var(--gold-lt)">See this month's full calendar →</a></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="js/main.js"></script>
+</body>
+</html>

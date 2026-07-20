@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gallery — Hart of Zouk | Life on the Dance Floor</title>
 <meta name="description" content="Photos from Hart of Zouk events — weekly socials, festivals, and community moments across the DMV.">
-<link rel="icon" href="assets/logo.png">
+<link rel="icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Fraunces:ital,wght@0,300;0,400;1,300;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
 /* rotating strip */
@@ -63,7 +63,7 @@
 <body data-page="gallery">
 
 <header class="page-hero">
-  <img src="assets/watermark.png" class="watermark" alt="" aria-hidden="true">
+  <img src="assets/watermark.webp" class="watermark" alt="" loading="lazy" decoding="async" aria-hidden="true">
   <div class="page-hero-inner">
     <p class="eyebrow">Community Moments</p>
     <h1>Life at Hart <em>of Zouk</em></h1>
@@ -100,37 +100,32 @@
 
 <script src="js/main.js"></script>
 <script>
-/* ── GALLERY DATA — paste Google Drive file IDs into driveId ──
-   Folder: drive.google.com/drive/folders/19-mGGLRjN5FAXvtUSUY1q88M4OcwEPbu */
-const GALLERY = [
-  { driveId:null, cap:'Urbankiz Mondays', h:240 },
-  { driveId:null, cap:'Community Vibes', h:320 },
-  { driveId:null, cap:'Kizomba Festival After Party', h:200 },
-  { driveId:null, cap:'Sweet Moments Workshop', h:280 },
-  { driveId:null, cap:'Dance Class', h:230 },
-  { driveId:null, cap:'Social Dancing', h:340 },
-  { driveId:null, cap:'Regency Garden Ball', h:210 },
-  { driveId:null, cap:"Women's Day Gathering", h:300 },
-  { driveId:null, cap:'Year in Review 2025', h:250 },
-  { driveId:null, cap:'Birthday Social', h:270 },
-  { driveId:null, cap:'Instructor Demo', h:220 },
-  { driveId:null, cap:'The Whole Crew', h:310 },
-];
-
-// rotating strip (duplicate for seamless loop)
-document.getElementById('strip').innerHTML = [...GALLERY, ...GALLERY].map(g => `
-  <div class="strip-card">
-    ${g.driveId ? `<img src="${driveUrl(g.driveId)}" alt="${g.cap}" loading="lazy">` : `<div class="ph">${g.cap}</div>`}
-  </div>`).join('');
-
-// masonry
-document.getElementById('masonry').innerHTML = GALLERY.map(g => `
-  <figure class="m-item">
-    ${g.driveId
-      ? `<img src="${driveUrl(g.driveId)}" alt="${g.cap}" loading="lazy">`
-      : `<div class="ph" style="height:${g.h}px">${g.cap}</div>`}
-    <figcaption class="cap">${g.cap}</figcaption>
-  </figure>`).join('');
+/* ── GALLERY — auto-loads every photo in assets/gallery/ ──
+   Client workflow: drop images into assets/gallery on GitHub → commit →
+   the build-gallery Action regenerates manifest.json → photos appear here. */
+fetch('assets/gallery/manifest.json')
+  .then(r => r.json())
+  .then(items => {
+    const strip = document.getElementById('strip');
+    const masonry = document.getElementById('masonry');
+    if (!items.length) {
+      masonry.innerHTML = `<p style="font-style:italic;color:var(--muted);font-size:1.1rem">
+        Photos are on their way — check back soon, or follow
+        <a href="https://instagram.com/hartofzouk" target="_blank" rel="noopener" style="color:var(--terra)">@hartofzouk</a>
+        for the latest moments.</p>`;
+      return;
+    }
+    // rotating strip (duplicate list for seamless loop)
+    strip.innerHTML = [...items, ...items].map(g => `
+      <div class="strip-card"><img src="${g.src}" alt="${g.cap}" loading="lazy" decoding="async"></div>`).join('');
+    // masonry
+    masonry.innerHTML = items.map(g => `
+      <figure class="m-item">
+        <img src="${g.src}" alt="${g.cap}" loading="lazy" decoding="async">
+        <figcaption class="cap">${g.cap}</figcaption>
+      </figure>`).join('');
+  })
+  .catch(() => {});
 </script>
 </body>
 </html>

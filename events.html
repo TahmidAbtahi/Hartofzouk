@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Upcoming Events — Hart of Zouk | Falls Church, VA</title>
 <meta name="description" content="Upcoming zouk, tarraxo & kizomba events in Falls Church VA — weekly Urbankiz Mondays, workshops, and festivals.">
-<link rel="icon" href="assets/logo.png">
+<link rel="icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Fraunces:ital,wght@0,300;0,400;1,300;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
 .events-layout { display: grid; grid-template-columns: 330px 1fr; gap: 3rem; align-items: start; }
@@ -56,7 +56,9 @@
 }
 .pay-note strong { color: var(--gold-lt); font-style: normal; }
 @media (max-width: 920px) {
-  .events-layout { grid-template-columns: 1fr; }
+  .events-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .cal-days div { font-size: .95rem; }
+  .ev-row { padding: 1.2rem; gap: 1rem; }
   .cal { position: static; }
   .ev-row { grid-template-columns: 64px 1fr; }
   .ev-side { grid-column: 2; text-align: left; }
@@ -67,7 +69,7 @@
 <body data-page="events">
 
 <header class="page-hero">
-  <img src="assets/watermark.png" class="watermark" alt="" aria-hidden="true">
+  <img src="assets/watermark.webp" class="watermark" alt="" loading="lazy" decoding="async" aria-hidden="true">
   <div class="page-hero-inner">
     <p class="eyebrow">On the Calendar</p>
     <h1>Upcoming <em>Events</em></h1>
@@ -98,31 +100,6 @@
   </div>
 </section>
 
-
-<!-- YOUR FIRST MONDAY -->
-<section class="section" style="background:var(--plum)">
-  <div class="container" style="text-align:center">
-    <p class="eyebrow center reveal" style="color:var(--gold-lt)">New to Urbankiz Mondays?</p>
-    <h2 class="h2 reveal" style="color:var(--cream)">Your First <em style="color:var(--gold)">Monday</em></h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem;margin-top:3rem">
-      <div class="reveal">
-        <div style="width:64px;height:64px;border-radius:50%;margin:0 auto 1.2rem;background:var(--terra);color:var(--cream);font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(30,16,10,.35)">1</div>
-        <h3 style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.4rem;color:var(--cream);margin-bottom:.7rem">Show Up</h3>
-        <p style="color:rgba(240,230,211,.65);line-height:1.8;max-width:280px;margin:0 auto">No partner, no experience needed. Arrive by 7:30 PM — Falls Church, VA. Come as you are.</p>
-      </div>
-      <div class="reveal" style="transition-delay:.12s">
-        <div style="width:64px;height:64px;border-radius:50%;margin:0 auto 1.2rem;background:var(--terra);color:var(--cream);font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(30,16,10,.35)">2</div>
-        <h3 style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.4rem;color:var(--cream);margin-bottom:.7rem">Learn</h3>
-        <p style="color:rgba(240,230,211,.65);line-height:1.8;max-width:280px;margin:0 auto">A welcoming, structured class led by our resident instructors — a new topic every week.</p>
-      </div>
-      <div class="reveal" style="transition-delay:.24s">
-        <div style="width:64px;height:64px;border-radius:50%;margin:0 auto 1.2rem;background:var(--terra);color:var(--cream);font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(30,16,10,.35)">3</div>
-        <h3 style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.4rem;color:var(--cream);margin-bottom:.7rem">Dance</h3>
-        <p style="color:rgba(240,230,211,.65);line-height:1.8;max-width:280px;margin:0 auto">Social starts at 8:30. Stay late, meet the community, and feel why we keep coming back.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <script src="js/main.js"></script>
 <script>
@@ -187,9 +164,7 @@ EVENTS.forEach(ev => {
     </article>`);
 });
 list.insertAdjacentHTML('beforeend', `
-  <div class="pay-note">
-    <strong>At the door:</strong> $15 cover for Monday socials — Venmo <strong>@Courtney_R</strong> or Cash App <strong>$courtmcruss</strong>. Cash welcome. Your first class? Come say hi — we'll take care of you.
-  </div>`);
+  `);
 
 // calendar
 let cy = 2026, cm = 6; // July 2026
