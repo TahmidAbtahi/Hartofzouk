@@ -95,7 +95,7 @@ a { color: inherit; }
 /* mobile hamburger */
 .nav-burger {
   display: none; background: none; border: none; cursor: pointer;
-  width: 32px; height: 26px; position: relative; z-index: 600;
+  width: 44px; height: 44px; padding: 9px 6px; position: relative; z-index: 600;
 }
 .nav-burger span {
   display: block; height: 2px; background: var(--terra); margin: 6px 0;
@@ -224,13 +224,22 @@ a { color: inherit; }
 .footer-social a:hover { background: var(--terra); border-color: var(--terra); color: var(--cream); }
 
 /* ════ MOBILE ════ */
+/* prevent any long string (emails, URLs) from causing horizontal scroll */
+.footer, .c-card, .form-panel { overflow-wrap: anywhere; }
+a { overflow-wrap: anywhere; }
+
 @media (max-width: 920px) {
   .nav { padding: .8rem 1.4rem; }
   .nav-burger { display: block; }
   .nav-menu {
-    position: fixed; inset: 0; z-index: 550;
+    /* explicit 100vw/100vh sizing: backdrop-filter on .nav makes it the
+       containing block, so inset:0 would collapse to the nav bar's height */
+    position: fixed; top: 0; left: 0;
+    width: 100vw; height: 100vh; height: 100svh;
+    z-index: 550;
     background: var(--ink);
-    flex-direction: column; justify-content: center; gap: 1.6rem;
+    flex-direction: column; justify-content: center; gap: 1.4rem;
+    overflow-y: auto; padding: 4.5rem 1.5rem 2rem;
     opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s;
   }
   .nav-menu.open { opacity: 1; visibility: visible; }
@@ -244,7 +253,17 @@ a { color: inherit; }
   .dropdown a { font-size: .85rem; padding: .4rem; }
   .dropdown a:hover { padding-left: .4rem; background: none; }
 
-  .section, .page-hero, .footer { padding-left: 1.4rem; padding-right: 1.4rem; }
-  .page-hero { padding-top: 7rem; }
+  .section, .page-hero, .footer { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .section { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+  .page-hero { padding-top: 6.5rem; padding-bottom: 3.5rem; }
+  .h2 { font-size: 1.9rem; }
+  .btn { width: 100%; justify-content: center; }
+  .btn + .btn { margin-top: .6rem; margin-left: 0 !important; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* accessibility: honor reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .butterfly-layer { display: none !important; }
 }
