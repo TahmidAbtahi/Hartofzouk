@@ -12,20 +12,12 @@ const NAV_HTML = `
   </button>
   <ul class="nav-menu" id="nav-menu">
     <li><a href="index.html" data-page="home">Home</a></li>
-    <li class="has-dropdown">
-      <a href="events.html" data-page="events">Events</a>
-      <ul class="dropdown">
-        <li class="dd-label">Featured</li>
-        <li><a href="showcase.html">★ Summer Showcase 2026</a></li>
-        <li class="dd-label">Upcoming</li>
-        <li><a href="urbankiz-mondays.html">Urbankiz Mondays</a></li>
-        <li><a href="events.html#sweet-moments">Sweet Moments Workshop</a></li>
-        <li class="dd-label">Archive</li>
-        <li><a href="https://www.instagram.com/hartofzouk" target="_blank" rel="noopener">Past Events (100+) ↗</a></li>
-      </ul>
-    </li>
-    <li><a href="services.html" data-page="services">Services</a></li>
-    <li><a href="about.html" data-page="about">About</a></li>
+    <li><a href="showcase.html" data-page="events">Summer Showcase</a></li>
+    <!-- SOFT-LAUNCH: full events / services / about hidden until fuller launch
+    <li class="has-dropdown">...</li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    -->
     <li><a href="contact.html" data-page="contact" class="nav-cta">Connect</a></li>
   </ul>
 </nav>`;
@@ -33,21 +25,10 @@ const NAV_HTML = `
 const FOOTER_HTML = `
 <footer class="footer">
   <img src="assets/watermark.webp" class="watermark-bg" alt="" loading="lazy" decoding="async" aria-hidden="true">
-  <div class="footer-grid">
+  <div class="footer-grid footer-slim">
     <div class="footer-brand">
       <img src="assets/logo.webp" alt="Hart of Zouk">
       <p>Where connection, rhythm, and community meet. DMV dance events, studio rental, and event design — curated with hart.</p>
-    </div>
-    <div>
-      <h4>Explore</h4>
-      <ul>
-        <li><a href="urbankiz-mondays.html">Urbankiz Mondays</a></li>
-        <li><a href="events.html">Upcoming Events</a></li>
-        <li><a href="showcase.html">★ Summer Showcase 2026</a></li>
-        <li><a href="https://www.instagram.com/hartofzouk" target="_blank" rel="noopener">Past Events ↗</a></li>
-        <li><a href="services.html">Studio Rental</a></li>
-        <li><a href="about.html">Our Story</a></li>
-      </ul>
     </div>
     <div>
       <h4>Community</h4>
@@ -55,14 +36,12 @@ const FOOTER_HTML = `
         <li><a href="https://instagram.com/hartofzouk" target="_blank" rel="noopener">Instagram</a></li>
         <li><a href="https://www.facebook.com/HartofZouk" target="_blank" rel="noopener">Facebook</a></li>
         <li><a href="http://www.openwindowevents.com" target="_blank" rel="noopener">Open Window Events</a></li>
-        <li><a href="contact.html">Newsletter</a></li>
       </ul>
     </div>
     <div>
       <h4>Visit</h4>
       <ul>
         <li>Falls Church, VA 22046</li>
-        <li><a href="tel:3017046584">(301) 704-6584</a></li>
         <li><a href="contact.html">Email us</a></li>
       </ul>
     </div>
@@ -72,11 +51,10 @@ const FOOTER_HTML = `
     <div class="footer-social">
       <a href="https://instagram.com/hartofzouk" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
       <a href="https://www.facebook.com/HartofZouk" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
-      <a href="tel:3017046584" aria-label="Call">☏</a>
     </div>
   </div>
   <div style="text-align:center;margin-top:1.6rem;font-size:.78rem;color:rgba(240,230,211,.35);position:relative">
-    This website is made with <span style="color:#c4532a">love</span> by
+    This website is made with love by
     <a href="https://tahmidabtahi.github.io/heartboundcoders/" target="_blank" rel="noopener"
        style="color:rgba(240,230,211,.55);text-decoration:none;border-bottom:1px dotted rgba(240,230,211,.3)">heart.bound.coders</a>
   </div>
