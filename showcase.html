@@ -196,11 +196,40 @@
   .fl-when { gap: 1.1rem; }
   .fl-showcase { letter-spacing: .28em; }
 }
+
+/* ══════ MOBILE SHOWCASE HERO — sticky, video-centered, choreographed reveal ══════ */
+.sc-runway { display: none; }
+@media (max-width: 920px) {
+  .curtain { display: none !important; }
+  .sc-stage { position: relative; }
+  .sc-hero {
+    position: sticky !important; top: 0 !important;
+    height: 100vh; height: 100svh; min-height: 100svh;
+    padding: 6rem 1.2rem 2rem !important;
+    display: flex !important; align-items: stretch !important;
+    overflow: hidden;
+  }
+  .sc-video { object-position: center 35% !important; }
+  .sc-video.on { opacity: 1 !important; }
+  .sc-hero::before {
+    background: linear-gradient(180deg,
+      rgba(30,16,10,.32) 0%, rgba(30,16,10,.34) 42%,
+      rgba(30,16,10,.82) 78%, rgba(30,16,10,.96) 100%) !important;
+  }
+  .sc-hero-inner2 {
+    align-self: flex-end !important;
+    width: 100%; padding-bottom: 1rem;
+    opacity: 0; transform: translateY(28px) scale(.985);
+    transition: opacity 1s ease .2s, transform 1s ease .2s;
+  }
+  .sc-hero-inner2.in { opacity: 1; transform: translateY(0) scale(1); }
+  .sc-runway { display: block; height: 70vh; background: linear-gradient(var(--ink), var(--sand)); }
+}
 </style>
 </head>
 <body data-page="events">
 
-<header class="sc-hero">
+<div class="sc-stage"><header class="sc-hero">
   <video class="sc-video" id="sc-video" autoplay muted playsinline preload="metadata" aria-hidden="true"></video>
   <div class="curtain l"></div><div class="curtain r"></div>
   <div id="hearts"></div>
@@ -235,6 +264,8 @@
   </div>
   </div>
 </header>
+
+<div class="sc-runway" aria-hidden="true"></div></div>
 
 <section class="section sc-about">
   <div class="container sc-about-grid">
@@ -381,6 +412,15 @@
       fls[cur].style.opacity = 1;
     }, 4500);
   }
+})();
+
+
+// mobile: reveal the hero text as the sticky stage engages (matches desktop timing on wide screens)
+(function(){
+  const inner = document.querySelector('.sc-hero-inner2');
+  if (!inner) return;
+  if (matchMedia('(min-width: 921px)').matches) { inner.classList.add('in'); return; }
+  setTimeout(() => inner.classList.add('in'), 350);
 })();
 
 const hz = document.getElementById('hearts');

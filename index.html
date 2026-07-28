@@ -259,6 +259,11 @@
   
   .welcome-grid { grid-template-columns: 1fr; gap: 3rem; }
   .pillars-grid, .how-grid, .up-grid { grid-template-columns: 1fr; }
+
+  /* ── MOBILE HERO FIXES ── */
+  .hero-cinema { background-position: 66% 40% !important; }
+  .home-hero .wave-out { display: none !important; }
+  .home-hero { min-height: 260vh; }
 }
 </style>
 </head>
@@ -289,7 +294,7 @@
           <p>"Dance is the hidden language of the soul — spoken body to body, <em>heart to hart.</em>"</p>
         </blockquote>
         <div class="hero-actions">
-          <a href="events.html" class="btn btn-cream">Upcoming Events</a>
+          <a href="showcase.html" class="btn btn-cream">Summer Showcase 2026 ↗</a>
         </div>
       </div>
     </div>
@@ -315,15 +320,16 @@
     <div class="reveal">
       <p class="eyebrow">Welcome Home</p>
       <h2 class="h2">A Space Built for <em>Connection</em></h2>
-      <p style="margin-top:1.4rem">We believe <strong>connection is not a luxury — it's a human need.</strong> Hart of Zouk is a DMV dance collective where movement, music, and community come together, every single week.</p>
-      <p>This isn't about prescribing one style or one path. From <strong>urbankiz and tarraxo</strong> to <strong>douceur and Brazilian zouk</strong>, we offer a warm, supportive floor to grow your dance, deepen your musicality, and build real relationships — with the music, with your partners, and with yourself.</p>
+      <p style="margin-top:1.4rem">We believe <strong>connection is not a luxury — it's a human need.</strong> Hart of Zouk is a collective where movement, music, and community come together, every single week.</p>
+      <p>This isn't about prescribing one style or one path. From <strong>Brazilian Zouk and lambada</strong> to <strong>urban kiz, tarraxo, and ecstatic dance</strong>, we offer a warm, supportive floor to grow your dance, deepen your connection, and build real relationships — with the music, with your partners, and with yourself.</p>
       <p class="em-line">Here is a place to slow down, connect, express — and remember why you fell in love with dancing.</p>
-      <a href="about.html" class="btn btn-ghost-dark" style="margin-top:1.4rem">Learn Our Story</a>
+      <!-- soft-launch: About hidden --><a href="showcase.html" class="btn btn-ghost-dark" style="margin-top:1.4rem">See the Summer Showcase</a>
     </div>
   </div>
 </section>
 
-<!-- PILLARS -->
+<!-- PILLARS (soft-launch: hidden) -->
+<template id="pillars-later">
 <section class="section pillars">
   <img src="assets/watermark.webp" class="watermark-bg" alt="" loading="lazy" decoding="async" aria-hidden="true">
   <div class="container">
@@ -349,6 +355,7 @@
   </div>
 </section>
 
+</template>
 <!-- TESTIMONIALS -->
 <section class="section testimonials">
   <div class="container">
@@ -365,18 +372,7 @@
     <p class="eyebrow reveal">On the Calendar</p>
     <h2 class="h2 reveal">Upcoming <em>Gatherings</em></h2>
     <div class="up-grid">
-      <a class="up-card reveal" href="urbankiz-mondays.html">
-        <div class="up-banner">
-          <span class="date-chip"><span class="d">Mon</span><span class="m">Weekly</span></span>
-        </div>
-        <div class="up-body">
-          <span class="up-cat">Weekly Social</span>
-          <h3>Urbankiz Mondays</h3>
-          <p class="meta">Class + Social · rotating instructors</p>
-          <p class="loc">7:30 PM · Falls Church, VA · $15</p>
-        </div>
-      </a>
-      <a class="up-card reveal" style="transition-delay:.1s" href="showcase.html">
+<a class="up-card reveal" style="transition-delay:.1s" href="showcase.html">
         <div class="up-banner alt2">
           <span class="date-chip"><span class="d">8</span><span class="m">Aug</span></span>
         </div>
@@ -400,7 +396,7 @@
       </a>
     </div>
     <div style="text-align:center;margin-top:2.6rem" class="reveal">
-      <a href="events.html" class="btn btn-terra">View Full Schedule</a>
+      <a href="showcase.html" class="btn btn-terra">Summer Showcase Details</a>
       <a href="https://www.facebook.com/HartofZouk/events" target="_blank" rel="noopener" class="btn btn-ghost-dark" style="margin-left:.6rem">All Events on Facebook ↗</a>
     </div>
   </div>
@@ -455,7 +451,7 @@
     logo.style.transform = `scale(${(1 - lp*0.06).toFixed(3)})`;
 
     // quote resolves 22% → 52%, then DWELLS fully visible for the rest of the runway
-    const tp = smooth(Math.min(1, Math.max(0, (p - 0.3) / 0.32)));
+    const tp = smooth(Math.min(1, Math.max(0, (p - 0.22) / 0.22)));
     text.style.opacity   = tp.toFixed(2);
     text.style.filter    = `blur(${((1-tp)*14).toFixed(1)}px)`;
     text.style.transform = `translateY(${((1-tp)*22).toFixed(0)}px)`;
