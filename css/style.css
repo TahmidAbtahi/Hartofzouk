@@ -322,7 +322,7 @@ a { overflow-wrap: anywhere; }
 /* ══════ mobile hero blur choreography ══════ */
 @media (max-width: 920px) {
   .home-hero .hero-cinema {
-    filter: blur(14px) saturate(1.05);
+    filter: blur(4px) saturate(1.05);
     transition: filter .6s ease;
     will-change: filter;
   }
@@ -334,7 +334,7 @@ a { overflow-wrap: anywhere; }
 @media (max-width: 920px) {
   .home-hero .hero-cinema {
     animation: none !important;
-    filter: blur(14px) saturate(1.05) !important;
+    filter: blur(4px) saturate(1.05) !important;
     transform: scale(1.04) !important;
   }
   .home-hero.hero-focus .hero-cinema {
