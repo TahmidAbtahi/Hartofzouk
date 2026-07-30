@@ -322,7 +322,7 @@ a { overflow-wrap: anywhere; }
 /* ══════ mobile hero blur choreography ══════ */
 @media (max-width: 920px) {
   .home-hero .hero-cinema {
-    filter: blur(6px) saturate(1.05);
+    filter: blur(14px) saturate(1.05);
     transition: filter .6s ease;
     will-change: filter;
   }
@@ -334,7 +334,7 @@ a { overflow-wrap: anywhere; }
 @media (max-width: 920px) {
   .home-hero .hero-cinema {
     animation: none !important;
-    filter: blur(6px) saturate(1.05) !important;
+    filter: blur(14px) saturate(1.05) !important;
     transform: scale(1.04) !important;
   }
   .home-hero.hero-focus .hero-cinema {
@@ -365,4 +365,9 @@ a { overflow-wrap: anywhere; }
 /* ══════ mobile: hide ALL decorative watermark images site-wide (they read as ghost rectangles on narrow viewports) ══════ */
 @media (max-width: 920px) {
   .watermark-bg { display: none !important; }
+}
+
+/* mobile: hide the scrolling keyword ticker — it reads as a distracting streaming band on small screens */
+@media (max-width: 920px) {
+  .ticker-wrap { display: none !important; }
 }
