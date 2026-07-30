@@ -47,7 +47,7 @@ const FOOTER_HTML = `
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Hart of Zouk · Curated by @darlingdre</span>
+    <span>© 2026 Hart of Zouk</span>
     <div class="footer-social">
       <a href="https://instagram.com/hartofzouk" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
       <a href="https://www.facebook.com/HartofZouk" target="_blank" rel="noopener" aria-label="Facebook">FB</a>

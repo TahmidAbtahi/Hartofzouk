@@ -6,6 +6,24 @@
 <title>Hart of Zouk — Zouk & Kizomba Dance Events | Falls Church, VA</title>
 <meta name="description" content="Weekly zouk, tarraxo, and kizomba socials in Falls Church VA. Join the DMV's warmest dance community every Monday. Studio rental & event design too.">
 <link rel="icon" href="assets/favicon.png">
+<!-- SEO -->
+<link rel="canonical" href="https://hartofzouk.com/">
+<meta name="description" content="Hart of Zouk is a warm DMV dance community based in Falls Church, VA. Weekly Brazilian zouk, kizomba, and urban kiz socials, workshops, and the Summer Showcase 2026 at 1st Stage Theater in Tysons.">
+<meta name="keywords" content="zouk DC, kizomba DMV, brazilian zouk Falls Church, dance community Virginia, urban kiz workshops, Hart of Zouk, DMV dance events, Summer Showcase Tysons">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Hart of Zouk">
+<meta name="theme-color" content="#c4532a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hart of Zouk">
+<meta property="og:title" content="Hart of Zouk — DMV Dance Community">
+<meta property="og:description" content="Feel the Hart of Zouk. Weekly socials, workshops, and the Summer Showcase 2026 in Tysons, VA.">
+<meta property="og:url" content="https://hartofzouk.com/">
+<meta property="og:image" content="https://hartofzouk.com/assets/logo.webp">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hart of Zouk — DMV Dance Community">
+<meta name="twitter:description" content="Feel the Hart of Zouk. Weekly socials, workshops, and the Summer Showcase 2026 in Tysons, VA.">
+<meta name="twitter:image" content="https://hartofzouk.com/assets/logo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://d8j0ntlcm91z4.cloudfront.net">
@@ -266,6 +284,7 @@
   .home-hero { min-height: 260vh; }
 }
 </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"PerformingGroup","name":"Hart of Zouk","description":"A DMV dance community for Brazilian zouk, kizomba, urban kiz, and mindful movement.","url":"https://hartofzouk.com","logo":"https://hartofzouk.com/assets/logo.webp","email":"Hartofzouk@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Falls Church","addressRegion":"VA","postalCode":"22046","addressCountry":"US"},"areaServed":["Washington DC","Northern Virginia","Maryland"],"sameAs":["https://www.instagram.com/hartofzouk","https://www.facebook.com/HartofZouk"]}</script>
 </head>
 <body data-page="home">
 
@@ -402,13 +421,13 @@
   </div>
 </section>
 
-<!-- NEWSLETTER -->
-<section class="section newsletter">
+<!-- NEWSLETTER (soft-launch: hidden) -->
+<section class="section newsletter" style="display:none">
   <img src="assets/watermark.webp" class="watermark-bg" alt="" loading="lazy" decoding="async" aria-hidden="true">
   <div class="container">
     <p class="eyebrow center reveal" style="color:rgba(240,230,211,.75)">Stay Close</p>
-    <h2 class="h2 reveal">Never miss a Monday.</h2>
-    <p class="reveal">Event updates, class topics, and early festival access — straight to your inbox.</p>
+    <h2 class="h2 reveal">Never miss an event.</h2>
+    <p class="reveal">Event updates, class notes, and early festival access — straight to your inbox.</p>
     <form class="nl-form reveal" action="https://formsubmit.co/Hartofzouk@gmail.com" method="POST"
       onsubmit="const b=this.querySelector('button');b.disabled=true;b.textContent='...';">
       <input type="hidden" name="_subject" value="Newsletter signup — hartofzouk.com">
@@ -452,6 +471,9 @@
 
     // quote resolves 22% → 52%, then DWELLS fully visible for the rest of the runway
     const tp = smooth(Math.min(1, Math.max(0, (p - 0.22) / 0.22)));
+    // mobile hero blur: heavy blur behind the logo, clears as the quote emerges
+    const heroEl = document.getElementById('home-hero');
+    if (heroEl) heroEl.classList.toggle('hero-focus', tp > 0.35);
     text.style.opacity   = tp.toFixed(2);
     text.style.filter    = `blur(${((1-tp)*14).toFixed(1)}px)`;
     text.style.transform = `translateY(${((1-tp)*22).toFixed(0)}px)`;

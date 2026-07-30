@@ -271,5 +271,98 @@ a { overflow-wrap: anywhere; }
 /* soft-launch: slim 3-column footer */
 .footer-grid.footer-slim { grid-template-columns: 1.4fr 1fr 1fr; }
 @media (max-width: 920px) {
-  .footer-grid.footer-slim { grid-template-columns: 1fr; }
+  /* mobile footer: brand centered, community + visit side by side (2 cols) */
+  .footer-grid.footer-slim {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "brand brand"
+      "community visit";
+    gap: 2rem 1.2rem;
+    text-align: center;
+  }
+  .footer-grid.footer-slim .footer-brand { grid-area: brand; }
+  .footer-grid.footer-slim > div:nth-child(2) { grid-area: community; }
+  .footer-grid.footer-slim > div:nth-child(3) { grid-area: visit; }
+  .footer-brand img { margin: 0 auto 1rem !important; }
+  .footer-brand p { text-align: center; max-width: 320px; margin: 0 auto; }
+  .footer-slim h4 { text-align: center; }
+  .footer-slim ul { text-align: center; padding-left: 0; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 1.2rem; }
+  .footer-social { justify-content: center; }
+}
+
+/* ── mobile breathing room ── */
+@media (max-width: 920px) {
+  /* horizontal margins so content doesn't touch the screen edges */
+  .container { padding-left: 1.4rem !important; padding-right: 1.4rem !important; }
+  /* generous vertical rhythm between sections */
+  .section { padding-top: 5.5rem !important; padding-bottom: 5.5rem !important; }
+  /* extra dwell between the events calendar/upcoming and testimonials */
+  .section.upcoming-preview + .section.testimonials,
+  .section.testimonials { padding-top: 6.5rem !important; }
+  /* welcome section keeps tight top since it follows the hero directly */
+  .welcome { padding-top: 5rem !important; }
+}
+
+/* soft-launch guarantee: hide the terracotta newsletter section on every page */
+.section.newsletter { display: none !important; }
+
+/* nav: fully opaque so it never creates a translucent overlay ghost over dark sections */
+.nav {
+  background: var(--sand) !important;
+  box-shadow: 0 2px 20px rgba(30, 16, 10, 0.06);
+}
+
+/* ══════ ghost-box fix: force hide closed mobile menu + remove backdrop-filter that breaks containing block ══════ */
+.nav { backdrop-filter: none !important; }
+@media (max-width: 920px) {
+  .nav-menu:not(.open) { display: none !important; }
+}
+
+/* ══════ mobile hero blur choreography ══════ */
+@media (max-width: 920px) {
+  .home-hero .hero-cinema {
+    filter: blur(6px) saturate(1.05);
+    transition: filter .6s ease;
+    will-change: filter;
+  }
+  /* JS toggles this class as the quote comes into view */
+  .home-hero.hero-focus .hero-cinema { filter: blur(0px) saturate(1.05); }
+}
+
+/* ══════ mobile: disable the initial sharpenIn so scroll-blur controls filter ══════ */
+@media (max-width: 920px) {
+  .home-hero .hero-cinema {
+    animation: none !important;
+    filter: blur(6px) saturate(1.05) !important;
+    transform: scale(1.04) !important;
+  }
+  .home-hero.hero-focus .hero-cinema {
+    filter: blur(0px) saturate(1.05) !important;
+  }
+}
+
+/* footer headings: mute terracotta so they don't read as loud artifacts on mobile */
+.footer h4 { color: rgba(240, 230, 211, .55) !important; letter-spacing: .2em; }
+
+/* footer text: kill all warm/taupe/muted tinting — neutral cream tones only */
+.footer, .footer p, .footer .footer-brand p { color: rgba(240, 230, 211, .68) !important; }
+.footer .footer-bottom span { color: rgba(240, 230, 211, .55) !important; }
+.footer h4 { color: rgba(240, 230, 211, .58) !important; letter-spacing: .2em; }
+.footer a { color: rgba(240, 230, 211, .95) !important; }
+.footer a:hover { color: #fff !important; }
+
+/* footer-bottom container: also neutralize any leftover warm tone */
+.footer .footer-bottom, .footer .footer-bottom div, .footer .footer-bottom span {
+  color: rgba(240, 230, 211, .55) !important;
+}
+
+/* ══════ mobile: hide the giant footer watermark that renders as a ghost rectangle ══════ */
+@media (max-width: 920px) {
+  .footer .watermark-bg { display: none !important; }
+}
+
+/* ══════ mobile: hide ALL decorative watermark images site-wide (they read as ghost rectangles on narrow viewports) ══════ */
+@media (max-width: 920px) {
+  .watermark-bg { display: none !important; }
 }
