@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urban Kiz Mondays — Weekly Kiz Class + Social in DC | Hart of Kiz</title>
+<meta name="description" content="Urban Kiz Mondays — a Hart of Kiz weekly. Class 7:30 PM, social 8:30 PM at Kbird DC (1333 P St NW). Kiz Fusion Fundamentals class, rotating DJs, $15 cover, walk-ins welcome, no partner needed.">
+<link rel="icon" href="assets/favicon.png">
+<!-- SEO -->
+<link rel="canonical" href="https://hartofzouk.com/urban-kiz-mondays.html">
+<meta name="description" content="Every Monday in Falls Church, VA: urban kiz, zouk, tarraxo, kizomba class at 7:30 PM followed by social dancing at 8:30 PM. Beginners welcome, no partner needed.">
+<meta name="keywords" content="Urban Kiz Mondays, DC Urban Kiz, Kbird DC dance, kiz class Washington DC, Monday urban kiz DC, DC.Kiz.Community, Hart of Kiz, urban kiz fundamentals, kiz fusion">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Hart of Zouk">
+<meta name="theme-color" content="#c4532a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hart of Zouk">
+<meta property="og:title" content="Urban Kiz Mondays — Weekly Kiz + Social in DC">
+<meta property="og:description" content="Every Monday at Kbird DC. Kiz Fusion Fundamentals class, urban kiz social, warm DC community. Walk-ins welcome.">
+<meta property="og:url" content="https://hartofzouk.com/urban-kiz-mondays.html">
+<meta property="og:image" content="https://hartofzouk.com/assets/logo.webp">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hart of Kiz — Sister Community of Hart of Zouk">
+<meta name="twitter:description" content="Every Monday in Falls Church, VA: urban kiz, zouk, tarraxo, kizomba class at 7:30 PM followed by social dancing at 8:30 PM. Beginners welcome, no partner needed.">
+<meta name="twitter:image" content="https://hartofzouk.com/assets/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* hero */
+.uk-hero {
+  min-height: 88vh; background: var(--terra);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 8rem 3rem 6rem; position: relative; overflow: hidden;
+}
+.uk-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 55% 75% at 82% 35%, rgba(92,45,62,.5) 0%, transparent 65%),
+    radial-gradient(ellipse 35% 50% at 8% 90%, rgba(30,16,10,.3) 0%, transparent 60%);
+}
+.uk-hero-inner { position: relative; max-width: 1200px; margin: 0 auto; width: 100%; }
+.uk-kicker {
+  display: inline-flex; align-items: center; gap: .8rem;
+  font-size: .8rem; letter-spacing: .3em; text-transform: uppercase;
+  color: rgba(240,230,211,.75); margin-bottom: 1.4rem;
+}
+.uk-kicker::before { content: '♥'; color: var(--gold-lt); }
+.uk-hero h1 {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  font-size: clamp(3rem, 7.5vw, 6rem); line-height: .98; color: var(--cream);
+}
+.uk-hero h1 em { display: block; font-style: italic; color: var(--gold); font-weight: 400; }
+.uk-sub { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.2rem; color: rgba(240,230,211,.8); margin: 1.2rem 0 2rem; max-width: 520px; }
+.uk-facts { display: flex; flex-wrap: wrap; gap: .8rem; margin-bottom: 2.2rem; }
+.uk-fact {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .55rem 1.2rem; border: 1px solid rgba(240,230,211,.3); border-radius: 24px;
+  font-size: .9rem; color: var(--cream);
+}
+/* rhythm of the night */
+.uk-night { background: var(--sand); }
+.night-flow { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+.nf-card { background: #fff; border-top: 4px solid var(--terra); padding: 2.2rem 1.8rem; border: 1px solid rgba(30,16,10,.08); border-top: 4px solid var(--terra); }
+.nf-time { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 900; color: var(--terra); }
+.nf-card h3 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.3rem; color: var(--ink); margin: .4rem 0 .6rem; }
+.nf-card p { color: var(--muted); line-height: 1.8; }
+/* first monday */
+.uk-first { background: var(--plum); text-align: center; }
+.fm-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 2rem; margin-top: 3rem; }
+.fm-num {
+  width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 1.2rem;
+  background: var(--terra); color: var(--cream);
+  font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 26px rgba(30,16,10,.35);
+}
+.fm-grid h3 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.4rem; color: var(--cream); margin-bottom: .7rem; }
+.fm-grid p { color: rgba(240,230,211,.65); line-height: 1.8; max-width: 280px; margin: 0 auto; }
+/* details band */
+.uk-details { background: var(--ink); }
+.det-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.6rem; align-items: start; }
+.det-card { background: rgba(240,230,211,.05); border: 1px solid rgba(240,230,211,.1); padding: 2rem; }
+.det-card h3 { font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold-lt); font-size: 1.3rem; margin-bottom: 1rem; }
+.det-row { display: flex; gap: .9rem; padding: .55rem 0; color: rgba(240,230,211,.75); font-size: 1rem; }
+.det-row span:first-child { color: var(--terra); flex-shrink: 0; }
+.styles-row { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .6rem; }
+.st-chip { padding: .35rem .95rem; border: 1px solid rgba(212,160,48,.4); border-radius: 20px; font-size: .82rem; color: var(--cream-dk); }
+@media (max-width: 920px) {
+  .uk-hero { padding: 7rem 1.2rem 4rem; }
+  .night-flow { grid-template-columns: 1fr; }
+  .det-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<style>
+/* ══════ Hart of Kiz palette ══════ */
+:root {
+  --kiz-deep: #5c2d5c;     /* deep aubergine bg */
+  --kiz-plum: #7a3d68;     /* mid plum */
+  --kiz-rose: #a86078;     /* wave rose */
+  --kiz-coral: #d4907a;    /* heart coral */
+  --kiz-gold: #d4a030;     /* "of" gold */
+  --kiz-cream: #f7f0e6;    /* logo cream */
+}
+/* re-skin the urbankiz hero + accents with the Kiz palette */
+
+.uk-hero .eyebrow, .uk-hero .kiz-tagline { color: var(--gold-lt) !important; }
+.uk-hero h1 em { color: var(--gold) !important; }
+.uk-hero h1 { color: var(--cream) !important; }
+.uk-hero .uk-sub { color: rgba(247,240,230,.85) !important; }
+/* the sister-brand badge in the hero */
+.kiz-badge {
+  display: block; margin: 0 auto 2rem;
+  width: 130px; height: 130px; border-radius: 50%;
+  box-shadow: 0 20px 60px rgba(61,32,80,.45), 0 0 0 6px rgba(247,240,230,.08);
+  animation: fadeUp .9s ease both;
+}
+.kiz-tagline {
+  font-family: 'Fraunces', serif; font-style: italic;
+  letter-spacing: .08em; text-transform: uppercase;
+  font-size: clamp(.9rem, 1.4vw, 1.05rem);
+  text-align: center; margin: -1rem 0 1.4rem;
+  animation: fadeUp .9s .1s ease both;
+}
+/* three-act section: warm accent for section headings on this page */
+.uk-three-act h3, .first-monday h3 { color: var(--plum); }
+.uk-three-act .ic { background: linear-gradient(135deg, var(--plum), var(--plum-lt)); }
+.first-monday .step-num {
+  background: linear-gradient(135deg, var(--plum), var(--gold));
+  color: var(--cream);
+}
+/* "the good to know" strip */
+.uk-details .det-row span:first-child { color: var(--plum); }
+/* CTAs on this page get the Kiz-gold */
+.uk-hero .btn-terra, .uk-cta .btn-terra {
+  background: linear-gradient(135deg, var(--gold), var(--gold-lt)) !important;
+  color: var(--ink) !important;
+  border: none !important;
+}
+.uk-cta {
+  background: linear-gradient(180deg, var(--plum), var(--ink)) !important;
+  color: var(--cream) !important;
+}
+.uk-cta h2, .uk-cta h2 em { color: var(--cream) !important; }
+.uk-cta p { color: rgba(247,240,230,.8) !important; }
+</style>
+
+
+<style>
+/* This page rebrands the nav to Hart of Kiz (sister brand context) */
+body[data-page="urbankiz"] .nav-brand img { content: url('assets/hartofkiz-logo.webp'); }
+body[data-page="urbankiz"] .nav-brand span { color: var(--plum) !important; }
+</style>
+
+
+<style>
+/* ══════ Urban Kiz Mondays page ══════ */
+.uk-thisweek { background: linear-gradient(180deg, var(--plum) 0%, #4a2432 100%); }
+.uk-week-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem;
+  max-width: 780px; margin: 0 auto;
+}
+.uk-week-card {
+  background: rgba(247, 240, 230, 0.06);
+  border: 1px solid rgba(247, 240, 230, 0.14);
+  border-radius: 16px; padding: 1.6rem 1rem; text-align: center;
+  backdrop-filter: blur(6px);
+  transition: transform .3s ease, border-color .3s ease;
+}
+.uk-week-card:hover { transform: translateY(-4px); border-color: rgba(212, 160, 48, 0.5); }
+.uw-icon { font-size: 1.8rem; margin-bottom: .4rem; }
+.uw-label { font-family: 'Lora', serif; text-transform: uppercase; letter-spacing: .2em; font-size: .72rem; color: rgba(247, 240, 230, .6); margin-bottom: .3rem; }
+.uw-val { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.35rem; color: var(--cream); }
+
+/* People (Instructors + DJs) sections */
+.uk-instructors { background: linear-gradient(180deg, #4a2432 0%, var(--plum) 100%); padding-top: 5rem; padding-bottom: 4rem; }
+.uk-djs { background: linear-gradient(180deg, var(--plum) 0%, #3d1e2b 100%); padding-top: 4rem; padding-bottom: 5rem; }
+.uk-people-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2rem 1.4rem;
+  max-width: 960px; margin: 0 auto;
+}
+.uk-person {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  text-decoration: none; color: inherit;
+  transition: transform .35s ease;
+}
+.uk-person:hover { transform: translateY(-4px); }
+.up-photo {
+  width: 130px; height: 130px; border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 12px 32px rgba(61, 32, 80, .5), 0 0 0 3px rgba(247, 240, 230, .1);
+  transition: box-shadow .35s ease;
+}
+.uk-person:hover .up-photo {
+  box-shadow: 0 16px 44px rgba(212, 144, 122, .4), 0 0 0 3px rgba(212, 160, 48, .5);
+}
+.up-name {
+  font-family: 'Playfair Display', serif; font-weight: 700;
+  font-size: 1.25rem; color: var(--cream); margin-top: 1rem;
+}
+.up-handle {
+  font-family: 'Lora', serif; font-size: .88rem;
+  color: var(--gold-lt); margin-top: .2rem;
+}
+.up-note {
+  font-family: 'Fraunces', serif; font-style: italic; font-size: .82rem;
+  color: rgba(247, 240, 230, .6); margin-top: .2rem;
+}
+
+/* Venue + map */
+.uk-venue { background: linear-gradient(180deg, #3d1e2b 0%, var(--ink) 100%); padding-top: 5rem; padding-bottom: 5rem; }
+.uk-map-wrap {
+  max-width: 900px; margin: 0 auto;
+  border-radius: 20px; overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .4);
+}
+
+/* Collab section */
+.uk-collab { background: linear-gradient(180deg, var(--ink) 0%, #2a1620 100%); padding-top: 4rem; padding-bottom: 5rem; }
+.uk-collab a:hover img { transform: scale(1.02); transition: transform .3s ease; }
+
+@media (max-width: 720px) {
+  .uk-week-grid { grid-template-columns: repeat(2, 1fr); gap: .8rem; }
+  .up-photo { width: 110px; height: 110px; }
+}
+</style>
+
+
+<style>
+
+/* ══════ ensure new sections center-align properly ══════ */
+.uk-thisweek .container, .uk-instructors .container, .uk-djs .container,
+.uk-venue .container, .uk-collab .container, .uk-guild .container {
+  text-align: center;
+}
+.uk-thisweek h2, .uk-instructors h2, .uk-djs h2, .uk-venue h2, .uk-collab h2, .uk-guild h2 {
+  text-align: center; margin-left: auto; margin-right: auto;
+}
+.uk-people-grid { justify-items: center; }
+
+/* ══════ THE URBANKIZ GUILD — emblem breaks apart on scroll ══════ */
+.uk-guild { padding-top: 6rem; padding-bottom: 4rem; }
+.guild-stage {
+  position: relative;
+  min-height: 320px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1rem;
+  perspective: 1200px;
+}
+.guild-emblem {
+  position: relative;
+  width: 280px; height: 280px;
+  transition: opacity 1.1s ease, transform 1.4s cubic-bezier(.55,.05,.35,1), filter 1.1s ease;
+  will-change: transform, opacity, filter;
+  transform-origin: center;
+  animation: guildPulse 4s ease-in-out infinite;
+}
+.guild-emblem img {
+  width: 100%; height: 100%; object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(212, 160, 48, .35));
+}
+.guild-shimmer {
+  position: absolute; inset: -20%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 160, 48, .3) 0%, transparent 60%);
+  animation: guildGlow 4s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes guildPulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+@keyframes guildGlow {
+  0%,100% { opacity: .5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+/* Broken-apart state: emblem shatters + fades, then the people arrive */
+.uk-guild .guild-emblem-STATIC-UNUSED {
+  opacity: 0;
+  transform: scale(1.35) rotate(6deg);
+  filter: blur(6px) drop-shadow(0 30px 60px rgba(212, 160, 48, .8));
+  animation: none;
+}
+/* People appear with staggered arrival, flying in from around emblem center */
+.uk-guild .uk-people-grid .uk-person,
+.uk-guild + .section .uk-people-grid .uk-person { /* also style DJs after guild */
+  opacity: 0;
+  transform: translateY(40px) scale(.7);
+  transition: opacity .8s ease, transform .8s cubic-bezier(.34, 1.56, .64, 1);
+}
+.uk-guild.revealed .uk-people-grid .uk-person { opacity: 1; transform: translateY(0) scale(1); }
+/* stagger delays: each card takes flight from the center outward */
+.uk-guild.revealed .uk-people-grid .uk-person:nth-child(1) { transition-delay: .05s; }
+.uk-guild.revealed .uk-people-grid .uk-person:nth-child(2) { transition-delay: .15s; }
+.uk-guild.revealed .uk-people-grid .uk-person:nth-child(3) { transition-delay: .25s; }
+.uk-guild.revealed .uk-people-grid .uk-person:nth-child(4) { transition-delay: .35s; }
+.uk-guild.revealed .uk-people-grid .uk-person:nth-child(5) { transition-delay: .45s; }
+.uk-guild.revealed .uk-people-grid .uk-person:nth-child(6) { transition-delay: .55s; }
+.uk-guild.revealed .uk-people-grid .uk-person:nth-child(7) { transition-delay: .65s; }
+
+/* DJ section also animates on Guild break — softer + slightly later */
+.uk-djs .uk-person {
+  opacity: 0; transform: translateY(40px) scale(.7);
+  transition: opacity .8s ease, transform .8s cubic-bezier(.34, 1.56, .64, 1);
+}
+/* safety: even without JS class, DJs should be visible after 2s */
+.uk-djs .uk-person { animation: djFallbackShow 0s 2s forwards; }
+@keyframes djFallbackShow { to { opacity: 1; transform: none; } }
+.uk-djs.reveal-djs .uk-person { opacity: 1 !important; transform: translateY(0) scale(1) !important; }
+.uk-djs.reveal-djs .uk-person:nth-child(1) { transition-delay: .15s; }
+.uk-djs.reveal-djs .uk-person:nth-child(2) { transition-delay: .3s; }
+.uk-djs.reveal-djs .uk-person:nth-child(3) { transition-delay: .45s; }
+
+/* small tap-to-tease affordance while emblem is showing */
+.guild-emblem { cursor: pointer; }
+.guild-emblem:hover { transform: scale(1.05); }
+.uk-guild .guild-emblem-STATIC-UNUSED { cursor: default; }
+
+@media (max-width: 720px) {
+  .guild-stage { min-height: 240px; }
+  .guild-emblem { width: 200px; height: 200px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .guild-emblem { animation: none; }
+  .uk-guild .guild-emblem-STATIC-UNUSED { opacity: 0; transition: opacity .3s; }
+  .uk-guild .uk-person, .uk-djs .uk-person { transition: opacity .3s ease; transform: none !important; }
+}
+</style>
+
+<script>
+// The Guild — emblem shatters into the folks when the section comes into view
+document.addEventListener('DOMContentLoaded', function() {
+  const guild = document.getElementById('uk-guild');
+  const djs = document.querySelector('.uk-djs');
+  const emblem = document.getElementById('guildEmblem');
+  if (!guild) return;
+  let broken = false;
+  const trigger = () => {
+    if (broken) return;
+    broken = true;
+    guild.classList.add('broken', 'revealed');
+    setTimeout(() => djs && djs.classList.add('reveal-djs'), 1200);
+  };
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) setTimeout(trigger, 500); });
+  }, { threshold: 0.3 });
+  io.observe(guild);
+  // tap to trigger early
+  if (emblem) emblem.addEventListener('click', trigger);
+});
+</script>
+
+
+<style>
+/* force full-hero centering on Urban Kiz Mondays page */
+.uk-hero-centered { text-align: center; }
+.uk-hero-centered .uk-sub {
+  text-align: center !important;
+  max-width: 640px; margin-left: auto !important; margin-right: auto !important;
+}
+.uk-hero-centered .uk-facts { justify-content: center; }
+.uk-hero-centered p.uk-kicker { text-align: center; }
+</style>
+
+
+<style>
+/* Guild emblem: static, radiant, with a permanent breathing golden glow */
+.guild-emblem {
+  animation: guildBreathe 5s ease-in-out infinite;
+}
+.guild-emblem img {
+  filter: drop-shadow(0 0 24px rgba(212, 160, 48, .55)) drop-shadow(0 12px 40px rgba(212, 160, 48, .3));
+}
+.guild-shimmer {
+  background: radial-gradient(circle, rgba(232, 188, 90, .45) 0%, rgba(212, 160, 48, .15) 40%, transparent 70%);
+  animation: guildRadiate 5s ease-in-out infinite;
+}
+@keyframes guildBreathe {
+  0%,100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.04) rotate(0.5deg); }
+}
+@keyframes guildRadiate {
+  0%,100% { opacity: .55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.18); }
+}
+/* subtle golden particle ring around the emblem */
+.guild-emblem::after {
+  content: ''; position: absolute; inset: -12%;
+  border-radius: 50%;
+  border: 1px solid rgba(232, 188, 90, .35);
+  box-shadow: 0 0 40px rgba(212, 160, 48, .25) inset, 0 0 60px rgba(212, 160, 48, .3);
+  animation: guildRing 6s linear infinite;
+}
+@keyframes guildRing {
+  0% { transform: rotate(0deg) scale(1); border-color: rgba(232, 188, 90, .35); }
+  50% { transform: rotate(180deg) scale(1.06); border-color: rgba(212, 160, 48, .55); }
+  100% { transform: rotate(360deg) scale(1); border-color: rgba(232, 188, 90, .35); }
+}
+</style>
+
+
+<style>
+/* Guild break-apart: emblem scales, blurs, fades out; instructor cards fly in staggered */
+.uk-guild .guild-emblem {
+  transition: opacity 1.2s ease, transform 1.4s cubic-bezier(.55,.05,.35,1), filter 1.2s ease;
+  cursor: pointer;
+}
+.uk-guild.broken .guild-emblem {
+  opacity: 0;
+  transform: scale(1.5) rotate(6deg);
+  filter: blur(10px) drop-shadow(0 40px 80px rgba(212, 160, 48, .9));
+  animation: none !important;
+  pointer-events: none;
+}
+.uk-guild.broken .guild-emblem::after { opacity: 0; }
+/* the ring around the emblem also fades in .broken */
+.uk-guild.broken .guild-shimmer { opacity: 0; transition: opacity 1s ease; }
+
+/* People start invisible in the guild section */
+.uk-guild .uk-people-grid .uk-person {
+  opacity: 0;
+  transform: translateY(40px) scale(.7);
+  transition: opacity .8s ease, transform .8s cubic-bezier(.34, 1.56, .64, 1);
+}
+.uk-guild.broken .uk-people-grid .uk-person { opacity: 1; transform: translateY(0) scale(1); }
+/* staggered arrival */
+.uk-guild.broken .uk-people-grid .uk-person:nth-child(1) { transition-delay: .1s; }
+.uk-guild.broken .uk-people-grid .uk-person:nth-child(2) { transition-delay: .2s; }
+.uk-guild.broken .uk-people-grid .uk-person:nth-child(3) { transition-delay: .3s; }
+.uk-guild.broken .uk-people-grid .uk-person:nth-child(4) { transition-delay: .4s; }
+.uk-guild.broken .uk-people-grid .uk-person:nth-child(5) { transition-delay: .5s; }
+.uk-guild.broken .uk-people-grid .uk-person:nth-child(6) { transition-delay: .6s; }
+.uk-guild.broken .uk-people-grid .uk-person:nth-child(7) { transition-delay: .7s; }
+.uk-guild.broken .uk-people-grid .uk-person:nth-child(8) { transition-delay: .8s; }
+
+/* Role labels: subtle gold caps above name */
+.up-role {
+  font-family: 'Lora', serif;
+  text-transform: uppercase;
+  letter-spacing: .24em;
+  font-size: .72rem;
+  color: var(--gold-lt);
+  margin-top: .9rem;
+  opacity: .8;
+}
+.up-name { margin-top: .3rem !important; }
+</style>
+
+
+<style>
+/* ══════ TIGHTEN THE URBAN KIZ MONDAYS LAYOUT ══════ */
+/* reduce section vertical padding across the page */
+.uk-thisweek, .uk-instructors, .uk-guild, .uk-venue, .uk-collab {
+  padding-top: 3.2rem !important;
+  padding-bottom: 3.2rem !important;
+}
+/* tighter h2 bottom margin */
+.uk-thisweek h2, .uk-guild h2, .uk-venue h2 {
+  margin-bottom: 1.4rem !important;
+}
+/* tighter people grid */
+.uk-people-grid { gap: 1.6rem 1rem !important; }
+.up-photo { width: 118px !important; height: 118px !important; }
+.up-name { margin-top: .6rem !important; font-size: 1.1rem !important; }
+.up-role { font-size: .66rem !important; margin-top: .5rem !important; }
+.up-handle { font-size: .82rem !important; }
+.up-note { font-size: .76rem !important; margin-top: .15rem !important; }
+
+/* tighter This Week section */
+.uk-thisweek .reveal + .reveal { margin-top: 0 !important; }
+.uk-thisweek p[style*="margin:0 auto 2rem"] { margin-bottom: 1rem !important; max-width: 680px !important; }
+.uk-thisweek p[style*="margin:0 auto 3.4rem"] { margin-bottom: 1.8rem !important; max-width: 680px !important; }
+.uk-week-grid { gap: .8rem !important; max-width: 720px !important; margin-top: 1rem !important; }
+.uk-week-card { padding: 1.1rem .8rem !important; }
+.uw-icon { font-size: 1.4rem !important; margin-bottom: .25rem !important; }
+.uw-val { font-size: 1.2rem !important; }
+
+/* collab: two logos side-by-side, compact */
+.uk-collab-row {
+  display: flex; gap: 3rem;
+  justify-content: center; align-items: center;
+  flex-wrap: wrap;
+  max-width: 700px; margin: 0 auto;
+}
+.uk-collab-item {
+  display: flex; flex-direction: column; align-items: center;
+  text-decoration: none; color: inherit;
+  transition: transform .3s ease;
+}
+.uk-collab-item:hover { transform: translateY(-3px); }
+.uk-collab-logo {
+  width: 120px; height: 120px; object-fit: contain;
+  padding: 1rem; border-radius: 50%;
+  background: var(--cream);
+  box-shadow: 0 12px 32px rgba(0,0,0,.3);
+}
+.uk-collab-dgk { background: var(--cream); }
+.uk-collab-name {
+  font-family: 'Playfair Display', serif; font-weight: 700;
+  color: var(--cream); font-size: 1.05rem;
+  margin-top: .9rem !important;
+}
+.uk-collab-handle {
+  font-family: 'Lora', serif; font-style: italic;
+  color: var(--gold-lt); font-size: .85rem;
+  margin-top: .2rem !important;
+}
+
+/* venue map: slightly smaller to save scroll */
+.uk-map-wrap iframe { height: 300px !important; }
+
+/* on mobile, even tighter */
+@media (max-width: 720px) {
+  .uk-thisweek, .uk-instructors, .uk-guild, .uk-venue, .uk-collab {
+    padding-top: 2.6rem !important;
+    padding-bottom: 2.6rem !important;
+  }
+  .up-photo { width: 100px !important; height: 100px !important; }
+  .uk-collab-logo { width: 100px; height: 100px; }
+  .uk-collab-row { gap: 2rem; }
+}
+</style>
+
+
+<style>
+/* ══════ MIDNIGHT DANCE FLOOR palette on the hero ══════ */
+.uk-hero {
+  background: linear-gradient(135deg, #1a1430 0%, #3d2050 50%, #5c2d3e 100%) !important;
+}
+.uk-hero h1 { color: #f0e6d3 !important; }
+.uk-hero h1 em { color: #c4a870 !important; }  /* antique gold, less flashy than brand gold */
+.uk-hero .uk-kicker { color: rgba(240, 230, 211, 0.78) !important; }
+.uk-hero .uk-sub { color: rgba(240, 230, 211, 0.80) !important; }
+.uk-hero .uk-fact {
+  color: rgba(240, 230, 211, 0.9) !important;
+  border-color: rgba(168, 96, 120, 0.55) !important;  /* dusty rose border */
+}
+/* primary CTA: rose → antique gold gradient */
+.uk-hero .btn-cream {
+  background: linear-gradient(135deg, #a86078 0%, #c4a870 100%) !important;
+  color: #1a1430 !important;
+  border: none !important;
+  font-weight: 700;
+}
+.uk-hero .btn-cream:hover { filter: brightness(1.08); }
+/* secondary CTA: dusty rose ghost outline */
+.uk-hero .btn-ghost-light, .uk-hero .btn-ghost-dark {
+  color: rgba(240, 230, 211, 0.9) !important;
+  border: 2px solid rgba(168, 96, 120, 0.65) !important;
+}
+.uk-hero .btn-ghost-light:hover, .uk-hero .btn-ghost-dark:hover {
+  background: rgba(168, 96, 120, 0.18) !important;
+  border-color: #a86078 !important;
+}
+/* heart dot above kicker: softer rose */
+.uk-hero::before, .uk-hero .heart-dot { color: #a86078 !important; }
+</style>
+
+</head>
+<body data-page="events">
+
+<header class="uk-hero">
+  <div class="uk-hero-inner uk-hero-centered">
+    <p class="uk-kicker">Every Monday · Kbird DC · In collaboration with @dc.kiz.community</p>
+    <h1>Urban Kiz <em>Mondays</em></h1>
+    <p class="uk-sub">A warm, weekly home for Urban Kiz in the DC community. A themed class + a proper social — every Monday at Kbird DC. No partner, no experience needed.</p>
+    <div class="uk-facts">
+      <span class="uk-fact">🕢 Class 7:30 PM</span>
+      <span class="uk-fact">🌙 Social 8:30 PM</span>
+      <span class="uk-fact">💵 $15 Cover</span>
+      <span class="uk-fact">📍 Kbird DC</span>
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center">
+      <a href="https://www.instagram.com/dc.kiz.community/" target="_blank" rel="noopener" class="btn btn-cream">RSVP on Instagram ↗</a>
+      <a href="https://maps.google.com/?q=Kbird+DC+1333+P+St+NW+Washington+DC" target="_blank" rel="noopener" class="btn btn-ghost-light">📍 Directions to Kbird</a>
+    </div>
+  </div>
+  <div class="wave-out">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#f7f0e6"/>
+    </svg>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════════════════
+   THIS WEEK'S CLASS + LOGISTICS
+══════════════════════════════════════════════════════════ -->
+<section class="section uk-thisweek">
+  <div class="container">
+    <p class="eyebrow center reveal" style="color:var(--gold-lt)">The Dance</p>
+    <h2 class="h2 reveal" style="color:var(--cream);text-align:center;margin-bottom:1rem;font-size:clamp(2.6rem, 5.5vw, 4.4rem)">
+      What is <em style="color:var(--gold);font-style:italic">Urban Kiz</em>?
+    </h2>
+    <p class="reveal" style="color:rgba(247,240,230,.92);text-align:center;max-width:760px;margin:0 auto 2rem;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.3rem, 2.2vw, 1.7rem);line-height:1.7">
+      A modern, expressive dance born from Kizomba — where the classic African embrace meets sharp musicality, urban rhythm, and creative freedom.
+    </p>
+    <p class="reveal" style="color:rgba(247,240,230,.85);text-align:center;max-width:720px;margin:0 auto 3.4rem;font-family:'Lora',serif;font-size:clamp(1.15rem, 1.7vw, 1.3rem);line-height:1.75">
+      Every Monday we gather to grow the dance together — one themed class, one long social, and all the space to move at your own pace. Whether it's your first Monday or your fiftieth, you're home here.
+    </p>
+
+    <div class="uk-week-grid reveal">
+      <div class="uk-week-card">
+        <div class="uw-icon">📅</div>
+        <div class="uw-label">When</div>
+        <div class="uw-val">Monday</div>
+      </div>
+      <div class="uk-week-card">
+        <div class="uw-icon">🕢</div>
+        <div class="uw-label">Class</div>
+        <div class="uw-val">7:30 PM</div>
+      </div>
+      <div class="uk-week-card">
+        <div class="uw-icon">🎶</div>
+        <div class="uw-label">Social</div>
+        <div class="uw-val">8:30 PM</div>
+      </div>
+      <div class="uk-week-card">
+        <div class="uw-icon">💵</div>
+        <div class="uw-label">Cover</div>
+        <div class="uw-val">$15</div>
+      </div>
+    </div>
+
+    <p class="reveal" style="color:rgba(247,240,230,.7);text-align:center;margin-top:1.6rem;font-size:.95rem">
+      Walk-ins welcome · No partner needed
+    </p>
+    <p class="reveal" style="color:rgba(247,240,230,.6);text-align:center;margin-top:.6rem;font-size:.9rem;font-style:italic">
+      Weekly class topics posted on <a href="https://instagram.com/hartofzouk" target="_blank" rel="noopener" style="color:var(--gold-lt);text-decoration:underline">@hartofzouk</a>
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+   THE URBANKIZ GUILD — all artists in one grid, alphabetical
+══════════════════════════════════════════════════════════ -->
+<section class="section uk-people uk-instructors uk-guild" id="uk-guild">
+  <div class="container">
+    <h2 class="h2 reveal" style="color:var(--cream);text-align:center;margin-bottom:2.4rem">
+      Our <em style="color:var(--gold)">Artists</em>
+    </h2>
+    <div class="uk-people-grid reveal">
+      <a class="uk-person" href="https://www.instagram.com/darlingdre/" target="_blank" rel="noopener">
+        <img src="assets/instructors/andrea.webp" alt="Andrea — Community Lead" class="up-photo" loading="lazy">
+        <div class="up-role">Community Lead</div>
+        <div class="up-name">Andrea</div>
+        <div class="up-handle">@darlingdre</div>
+      </a>
+      <a class="uk-person" href="https://www.instagram.com/gitanababe/" target="_blank" rel="noopener">
+        <img src="assets/instructors/annie.webp" alt="Annie — Artist" class="up-photo" loading="lazy">
+        <div class="up-role">Artist</div>
+        <div class="up-name">Annie</div>
+        <div class="up-handle">@gitanababe</div>
+      </a>
+      <a class="uk-person" href="https://www.instagram.com/courtmcruss/" target="_blank" rel="noopener">
+        <img src="assets/instructors/courtney.webp" alt="Courtney — Community Lead" class="up-photo" loading="lazy">
+        <div class="up-role">Community Lead</div>
+        <div class="up-name">Courtney</div>
+        <div class="up-handle">@courtmcruss</div>
+      </a>
+      <a class="uk-person" href="https://www.instagram.com/swervin_n_serving/" target="_blank" rel="noopener">
+        <img src="assets/instructors/farrin.webp" alt="Farrin Is That Yo Wig" class="up-photo" loading="lazy">
+        <div class="up-role">DJ</div>
+        <div class="up-name">Farrin Is That Yo Wig</div>
+        <div class="up-handle">@swervin_n_serving</div>
+      </a>
+      <a class="uk-person" href="https://www.instagram.com/jonay.dance/" target="_blank" rel="noopener">
+        <img src="assets/instructors/jonay.webp" alt="Jonay — Artist" class="up-photo" loading="lazy">
+        <div class="up-role">Artist</div>
+        <div class="up-name">Jonay</div>
+        <div class="up-handle">@jonay.dance</div>
+      </a>
+      <a class="uk-person" href="https://www.instagram.com/laurastrubinger/" target="_blank" rel="noopener">
+        <img src="assets/instructors/laura.webp" alt="Laura — Artist" class="up-photo" loading="lazy">
+        <div class="up-role">Artist</div>
+        <div class="up-name">Laura</div>
+        <div class="up-handle">@laurastrubinger</div>
+      </a>
+      <a class="uk-person" href="https://www.instagram.com/the_latona_sis/" target="_blank" rel="noopener">
+        <img src="assets/instructors/meli.webp" alt="Meli — DJ" class="up-photo" loading="lazy">
+        <div class="up-role">DJ</div>
+        <div class="up-name">Meli</div>
+        <div class="up-handle">@the_latona_sis</div>
+      </a>
+      <a class="uk-person" href="https://www.instagram.com/danceflowhaven/" target="_blank" rel="noopener">
+        <img src="assets/instructors/nii.webp" alt="Nii — Artist" class="up-photo" loading="lazy">
+        <div class="up-role">Artist</div>
+        <div class="up-name">Nii</div>
+        <div class="up-handle">@danceflowhaven</div>
+      </a>
+      <a class="uk-person" href="https://www.instagram.com/ozzy_kiz/" target="_blank" rel="noopener">
+        <img src="assets/instructors/oz.webp" alt="Oz — Artist · DJ" class="up-photo" loading="lazy">
+        <div class="up-role">Artist · DJ</div>
+        <div class="up-name">Oz</div>
+        <div class="up-handle">@ozzy_kiz</div>
+      </a>
+      <a class="uk-person" href="https://www.instagram.com/afriqueshams/" target="_blank" rel="noopener">
+        <img src="assets/instructors/shams.webp" alt="Shams — DJ" class="up-photo" loading="lazy">
+        <div class="up-role">DJ</div>
+        <div class="up-name">Shams</div>
+        <div class="up-handle">@afriqueshams</div>
+      </a>
+      <a class="uk-person" href="https://www.instagram.com/scarletdancecoach/" target="_blank" rel="noopener">
+        <img src="assets/instructors/yelena.webp" alt="Yelena — Artist" class="up-photo" loading="lazy">
+        <div class="up-role">Artist</div>
+        <div class="up-name">Yelena</div>
+        <div class="up-handle">@scarletdancecoach</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+   VENUE + MAP
+══════════════════════════════════════════════════════════ -->
+<section class="section uk-venue">
+  <div class="container">
+    <p class="eyebrow center reveal" style="color:var(--gold-lt)">The Home</p>
+    <h2 class="h2 reveal" style="color:var(--cream);text-align:center;margin-bottom:.4rem">
+      Kbird <em style="color:var(--gold)">DC</em>
+    </h2>
+    <p class="reveal" style="color:rgba(247,240,230,.75);text-align:center;margin-bottom:2.4rem;font-family:'Lora',serif">
+      1333 P St NW · Washington, DC 20005
+    </p>
+    <div class="uk-map-wrap reveal">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.5!2d-77.0313!3d38.9096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sKbird%20DC%2C%201333%20P%20St%20NW%2C%20Washington%2C%20DC%2020005!5e0!3m2!1sen!2sus"
+        width="100%" height="360" style="border:0;border-radius:16px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div style="text-align:center;margin-top:1.6rem">
+      <a href="https://maps.google.com/?q=Kbird+DC+1333+P+St+NW+Washington+DC+20005" target="_blank" rel="noopener" class="btn btn-cream">Open in Google Maps ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+   IN COLLABORATION WITH
+══════════════════════════════════════════════════════════ -->
+<section class="section uk-collab">
+  <div class="container">
+    <p class="eyebrow center reveal" style="color:var(--gold-lt);margin-bottom:1.8rem">In Collaboration With</p>
+    <div class="uk-collab-row reveal">
+      <div class="uk-collab-item">
+        <img src="assets/urbankiz-guild.webp" alt="The Urbankiz Guild" class="uk-collab-logo">
+        <p class="uk-collab-name">The Urbankiz Guild</p>
+      </div>
+      <a href="https://www.instagram.com/dc.kiz.community/" target="_blank" rel="noopener" class="uk-collab-item">
+        <img src="assets/dgk-community.webp" alt="DC.Kiz.Community" class="uk-collab-logo uk-collab-dgk">
+        <p class="uk-collab-name">DC.Kiz.Community</p>
+        </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- THE RHYTHM OF THE NIGHT -->
+
+
+<!-- YOUR FIRST MONDAY -->
+
+
+<!-- GOOD TO KNOW -->
+
+
+<script src="js/main.js"></script>
+
+<script>
+// swap the nav brand text on this page (nav is JS-injected)
+document.addEventListener('DOMContentLoaded', () => {
+  const brandText = document.querySelector('.nav-brand span');
+  if (brandText) brandText.textContent = 'Hart of Kiz';
+  const brandImg = document.querySelector('.nav-brand img');
+  if (brandImg) brandImg.src = 'assets/hartofkiz-logo.webp';
+});
+</script>
+
+
+<script>
+// DJs: also reveal when their section comes into view (safety, in case user scrolls past the guild too fast)
+document.addEventListener('DOMContentLoaded', function() {
+  const djs = document.querySelector('.uk-djs');
+  if (!djs) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) djs.classList.add('reveal-djs');
+    });
+  }, { threshold: 0.15 });
+  io.observe(djs);
+});
+</script>
+
+</body>
+</html>
