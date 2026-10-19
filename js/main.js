@@ -12,12 +12,14 @@ const NAV_HTML = `
   </button>
   <ul class="nav-menu" id="nav-menu">
     <li><a href="index.html" data-page="home">Home</a></li>
-    <li><a href="showcase.html" data-page="events">Summer Showcase</a></li>
-    <!-- SOFT-LAUNCH: full events / services / about hidden until fuller launch
-    <li class="has-dropdown">...</li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="about.html">About</a></li>
-    -->
+    <li><a href="urban-kiz-mondays.html" data-page="urbankiz">Urban Kiz Mondays</a></li>
+    <li class="has-dropdown">
+      <a href="showcase.html" data-page="past-events">Past Events</a>
+      <ul class="dropdown">
+        <li><a href="showcase.html">★ Summer Showcase 2026</a></li>
+        <li><a href="https://www.instagram.com/hartofzouk" target="_blank" rel="noopener">Events on Instagram ↗</a></li>
+      </ul>
+    </li>
     <li><a href="contact.html" data-page="contact" class="nav-cta">Connect</a></li>
   </ul>
 </nav>`;
