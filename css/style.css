@@ -322,7 +322,7 @@ a { overflow-wrap: anywhere; }
 /* ══════ mobile hero blur choreography ══════ */
 @media (max-width: 920px) {
   .home-hero .hero-cinema {
-    filter: blur(4px) saturate(1.05);
+    filter: blur(14px) saturate(1.05);
     transition: filter .6s ease;
     will-change: filter;
   }
@@ -334,7 +334,7 @@ a { overflow-wrap: anywhere; }
 @media (max-width: 920px) {
   .home-hero .hero-cinema {
     animation: none !important;
-    filter: blur(4px) saturate(1.05) !important;
+    filter: blur(14px) saturate(1.05) !important;
     transform: scale(1.04) !important;
   }
   .home-hero.hero-focus .hero-cinema {
@@ -370,4 +370,54 @@ a { overflow-wrap: anywhere; }
 /* mobile: hide the scrolling keyword ticker — it reads as a distracting streaming band on small screens */
 @media (max-width: 920px) {
   .ticker-wrap { display: none !important; }
+}
+
+/* fuller nav: tighter gaps on desktop, wraps cleanly on narrower windows */
+@media (min-width: 921px) {
+  .nav-menu { gap: 1.4rem; }
+  .nav-menu > li > a { font-size: 0.92rem; letter-spacing: .08em; }
+}
+
+/* ══════ TYPOGRAPHY BUMP — bigger, more confident sizing site-wide ══════ */
+html { font-size: 17px; }  /* was default 16 — 6% larger baseline */
+body { font-size: 1.05rem; line-height: 1.65; }
+
+.h2 { font-size: clamp(2.4rem, 5vw, 4.2rem) !important; line-height: 1.05 !important; letter-spacing: -.005em; }
+.h3 { font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.2; }
+
+/* section-level paragraphs feel more substantial */
+.section p, .container p:not(.eyebrow):not(.footer p) {
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  line-height: 1.7;
+}
+
+/* eyebrow labels: slightly larger + more presence */
+.eyebrow { font-size: clamp(.82rem, 1vw, .95rem) !important; letter-spacing: .22em; }
+
+/* buttons: fuller click targets */
+.btn { font-size: 1rem; padding: 1rem 1.9rem; letter-spacing: .12em; }
+
+/* nav: match the confidence */
+.nav-menu > li > a { font-size: .98rem !important; }
+
+/* people cards: bigger names */
+.up-name { font-size: 1.35rem !important; margin-top: 1.1rem !important; }
+.up-handle { font-size: .95rem !important; }
+.up-photo { width: 150px !important; height: 150px !important; }
+
+/* this-week cards */
+.uw-val { font-size: 1.5rem !important; }
+.uw-label { font-size: .8rem !important; }
+
+@media (max-width: 720px) {
+  html { font-size: 16.5px; }
+  .up-photo { width: 130px !important; height: 130px !important; }
+}
+@media (max-width: 480px) {
+  .up-photo { width: 118px !important; height: 118px !important; }
+}
+
+/* on mobile, only ONE Connect visible: hide the drawer version (CTA stays as its own thing) */
+@media (max-width: 920px) {
+  .nav-menu.open > li:last-child { display: none !important; }
 }
