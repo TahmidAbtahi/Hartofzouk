@@ -13,13 +13,7 @@ const NAV_HTML = `
   <ul class="nav-menu" id="nav-menu">
     <li><a href="index.html" data-page="home">Home</a></li>
     <li><a href="urban-kiz-mondays.html" data-page="urbankiz">Urban Kiz Mondays</a></li>
-    <li class="has-dropdown">
-      <a href="showcase.html" data-page="past-events">Past Events</a>
-      <ul class="dropdown">
-        <li><a href="showcase.html">★ Summer Showcase 2026</a></li>
-        <li><a href="https://www.instagram.com/hartofzouk" target="_blank" rel="noopener">Events on Instagram ↗</a></li>
-      </ul>
-    </li>
+    <li><a href="https://www.instagram.com/hartofzouk" target="_blank" rel="noopener" data-page="past-events">Past Events ↗</a></li>
     <li><a href="contact.html" data-page="contact" class="nav-cta">Connect</a></li>
   </ul>
 </nav>`;
