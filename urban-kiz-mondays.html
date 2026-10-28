@@ -251,31 +251,16 @@ body[data-page="urbankiz"] .nav-brand span { color: var(--plum) !important; }
   margin: 0 auto 1rem;
   perspective: 1200px;
 }
-.guild-emblem {
-  position: relative;
-  width: 280px; height: 280px;
-  transition: opacity 1.1s ease, transform 1.4s cubic-bezier(.55,.05,.35,1), filter 1.1s ease;
-  will-change: transform, opacity, filter;
-  transform-origin: center;
-  animation: guildPulse 4s ease-in-out infinite;
-}
+.guild-emblem { position: relative; width: 100%; height: 100%; }
 .guild-emblem img {
   width: 100%; height: 100%; object-fit: contain;
   filter: drop-shadow(0 20px 40px rgba(212, 160, 48, .35));
 }
-.guild-shimmer {
-  position: absolute; inset: -20%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(212, 160, 48, .3) 0%, transparent 60%);
-  animation: guildGlow 4s ease-in-out infinite;
-  pointer-events: none;
-}
-@keyframes guildPulse {
-  0%,100% { transform: scale(1); }
+
+
   50% { transform: scale(1.03); }
 }
-@keyframes guildGlow {
-  0%,100% { opacity: .5; transform: scale(1); }
+
   50% { opacity: 1; transform: scale(1.1); }
 }
 /* Broken-apart state: emblem shatters + fades, then the people arrive */
@@ -292,28 +277,25 @@ body[data-page="urbankiz"] .nav-brand span { color: var(--plum) !important; }
   transform: translateY(40px) scale(.7);
   transition: opacity .8s ease, transform .8s cubic-bezier(.34, 1.56, .64, 1);
 }
-.uk-guild.revealed .uk-people-grid .uk-person { opacity: 1; transform: translateY(0) scale(1); }
+
 /* stagger delays: each card takes flight from the center outward */
-.uk-guild.revealed .uk-people-grid .uk-person:nth-child(1) { transition-delay: .05s; }
-.uk-guild.revealed .uk-people-grid .uk-person:nth-child(2) { transition-delay: .15s; }
-.uk-guild.revealed .uk-people-grid .uk-person:nth-child(3) { transition-delay: .25s; }
-.uk-guild.revealed .uk-people-grid .uk-person:nth-child(4) { transition-delay: .35s; }
-.uk-guild.revealed .uk-people-grid .uk-person:nth-child(5) { transition-delay: .45s; }
-.uk-guild.revealed .uk-people-grid .uk-person:nth-child(6) { transition-delay: .55s; }
-.uk-guild.revealed .uk-people-grid .uk-person:nth-child(7) { transition-delay: .65s; }
+
+
+
+
+
+
+
 
 /* DJ section also animates on Guild break — softer + slightly later */
-.uk-djs .uk-person {
-  opacity: 0; transform: translateY(40px) scale(.7);
-  transition: opacity .8s ease, transform .8s cubic-bezier(.34, 1.56, .64, 1);
-}
+.uk-djs .uk-person { opacity: 1; transform: none; }
 /* safety: even without JS class, DJs should be visible after 2s */
 .uk-djs .uk-person { animation: djFallbackShow 0s 2s forwards; }
-@keyframes djFallbackShow { to { opacity: 1; transform: none; } }
-.uk-djs.reveal-djs .uk-person { opacity: 1 !important; transform: translateY(0) scale(1) !important; }
-.uk-djs.reveal-djs .uk-person:nth-child(1) { transition-delay: .15s; }
-.uk-djs.reveal-djs .uk-person:nth-child(2) { transition-delay: .3s; }
-.uk-djs.reveal-djs .uk-person:nth-child(3) { transition-delay: .45s; }
+ }
+
+
+
+
 
 /* small tap-to-tease affordance while emblem is showing */
 .guild-emblem { cursor: pointer; }
@@ -325,34 +307,13 @@ body[data-page="urbankiz"] .nav-brand span { color: var(--plum) !important; }
   .guild-emblem { width: 200px; height: 200px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .guild-emblem { animation: none; }
+  .guild-emblem { position: relative; width: 100%; height: 100%; }
   .uk-guild .guild-emblem-STATIC-UNUSED { opacity: 0; transition: opacity .3s; }
   .uk-guild .uk-person, .uk-djs .uk-person { transition: opacity .3s ease; transform: none !important; }
 }
 </style>
 
-<script>
-// The Guild — emblem shatters into the folks when the section comes into view
-document.addEventListener('DOMContentLoaded', function() {
-  const guild = document.getElementById('uk-guild');
-  const djs = document.querySelector('.uk-djs');
-  const emblem = document.getElementById('guildEmblem');
-  if (!guild) return;
-  let broken = false;
-  const trigger = () => {
-    if (broken) return;
-    broken = true;
-    guild.classList.add('broken', 'revealed');
-    setTimeout(() => djs && djs.classList.add('reveal-djs'), 1200);
-  };
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) setTimeout(trigger, 500); });
-  }, { threshold: 0.3 });
-  io.observe(guild);
-  // tap to trigger early
-  if (emblem) emblem.addEventListener('click', trigger);
-});
-</script>
+
 
 
 <style>
@@ -369,34 +330,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <style>
 /* Guild emblem: static, radiant, with a permanent breathing golden glow */
-.guild-emblem {
-  animation: guildBreathe 5s ease-in-out infinite;
-}
+.guild-emblem { position: relative; width: 100%; height: 100%; }
 .guild-emblem img {
   filter: drop-shadow(0 0 24px rgba(212, 160, 48, .55)) drop-shadow(0 12px 40px rgba(212, 160, 48, .3));
 }
-.guild-shimmer {
-  background: radial-gradient(circle, rgba(232, 188, 90, .45) 0%, rgba(212, 160, 48, .15) 40%, transparent 70%);
-  animation: guildRadiate 5s ease-in-out infinite;
-}
-@keyframes guildBreathe {
-  0%,100% { transform: scale(1) rotate(0deg); }
+
+
   50% { transform: scale(1.04) rotate(0.5deg); }
 }
-@keyframes guildRadiate {
-  0%,100% { opacity: .55; transform: scale(1); }
+
   50% { opacity: 1; transform: scale(1.18); }
 }
 /* subtle golden particle ring around the emblem */
-.guild-emblem::after {
-  content: ''; position: absolute; inset: -12%;
-  border-radius: 50%;
-  border: 1px solid rgba(232, 188, 90, .35);
-  box-shadow: 0 0 40px rgba(212, 160, 48, .25) inset, 0 0 60px rgba(212, 160, 48, .3);
-  animation: guildRing 6s linear infinite;
-}
-@keyframes guildRing {
-  0% { transform: rotate(0deg) scale(1); border-color: rgba(232, 188, 90, .35); }
+
+
   50% { transform: rotate(180deg) scale(1.06); border-color: rgba(212, 160, 48, .55); }
   100% { transform: rotate(360deg) scale(1); border-color: rgba(232, 188, 90, .35); }
 }
@@ -409,33 +356,23 @@ document.addEventListener('DOMContentLoaded', function() {
   transition: opacity 1.2s ease, transform 1.4s cubic-bezier(.55,.05,.35,1), filter 1.2s ease;
   cursor: pointer;
 }
-.uk-guild.broken .guild-emblem {
-  opacity: 0;
-  transform: scale(1.5) rotate(6deg);
-  filter: blur(10px) drop-shadow(0 40px 80px rgba(212, 160, 48, .9));
-  animation: none !important;
-  pointer-events: none;
-}
-.uk-guild.broken .guild-emblem::after { opacity: 0; }
+.uk-guild.broken .guild-emblem { position: relative; width: 100%; height: 100%; }
+.uk-guild.broken 
 /* the ring around the emblem also fades in .broken */
-.uk-guild.broken .guild-shimmer { opacity: 0; transition: opacity 1s ease; }
+.uk-guild.broken 
 
 /* People start invisible in the guild section */
-.uk-guild .uk-people-grid .uk-person {
-  opacity: 0;
-  transform: translateY(40px) scale(.7);
-  transition: opacity .8s ease, transform .8s cubic-bezier(.34, 1.56, .64, 1);
-}
-.uk-guild.broken .uk-people-grid .uk-person { opacity: 1; transform: translateY(0) scale(1); }
+.uk-guild .uk-people-grid .uk-person { opacity: 1; transform: none; }
+
 /* staggered arrival */
-.uk-guild.broken .uk-people-grid .uk-person:nth-child(1) { transition-delay: .1s; }
-.uk-guild.broken .uk-people-grid .uk-person:nth-child(2) { transition-delay: .2s; }
-.uk-guild.broken .uk-people-grid .uk-person:nth-child(3) { transition-delay: .3s; }
-.uk-guild.broken .uk-people-grid .uk-person:nth-child(4) { transition-delay: .4s; }
-.uk-guild.broken .uk-people-grid .uk-person:nth-child(5) { transition-delay: .5s; }
-.uk-guild.broken .uk-people-grid .uk-person:nth-child(6) { transition-delay: .6s; }
-.uk-guild.broken .uk-people-grid .uk-person:nth-child(7) { transition-delay: .7s; }
-.uk-guild.broken .uk-people-grid .uk-person:nth-child(8) { transition-delay: .8s; }
+
+
+
+
+
+
+
+
 
 /* Role labels: subtle gold caps above name */
 .up-role {
@@ -558,6 +495,58 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 /* heart dot above kicker: softer rose */
 .uk-hero::before, .uk-hero .heart-dot { color: #a86078 !important; }
+</style>
+
+
+<style>
+/* No-animation mode: Urban Kiz page shows all people cards immediately */
+.uk-guild .uk-people-grid .uk-person,
+.uk-djs .uk-person,
+.uk-guild .uk-people-grid.reveal,
+.uk-guild .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
+</style>
+
+
+<style>
+/* ══════ OUR COMMUNITY section ══════ */
+.uk-community {
+  background: linear-gradient(180deg, var(--plum) 0%, #4a2432 100%);
+  padding-top: 4rem; padding-bottom: 4rem;
+}
+.uk-video-wrap {
+  max-width: 1000px; margin: 0 auto 2.6rem;
+  border-radius: 20px; overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,.4);
+  background: var(--ink);
+  aspect-ratio: 16/9;
+}
+.uk-video {
+  width: 100%; height: 100%; display: block;
+  object-fit: cover; object-position: center 40%;
+}
+.uk-photos-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+  max-width: 1000px; margin: 0 auto;
+}
+.uk-photo {
+  margin: 0; border-radius: 12px; overflow: hidden;
+  aspect-ratio: 4/5; background: var(--ink);
+  box-shadow: 0 10px 24px rgba(0,0,0,.3);
+  transition: transform .4s ease;
+}
+.uk-photo:hover { transform: translateY(-4px); }
+.uk-photo img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+@media (max-width: 720px) {
+  .uk-photos-grid { grid-template-columns: 1fr; gap: .8rem; }
+  .uk-video-wrap { aspect-ratio: 16/9; margin-bottom: 2rem; }
+  .uk-community { padding-top: 3rem; padding-bottom: 3rem; }
+}
 </style>
 
 </head>
@@ -736,6 +725,45 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 </section>
 
+
+<!-- ══════════════════════════════════════════════════════════
+   OUR COMMUNITY — lazy-loaded background video + group photos
+══════════════════════════════════════════════════════════ -->
+<section class="section uk-community">
+  <div class="container">
+    <p class="eyebrow center reveal" style="color:var(--gold-lt)">The Floor</p>
+    <h2 class="h2 reveal" style="color:var(--cream);text-align:center;margin-bottom:1.6rem">
+      Our <em style="color:var(--gold)">Community</em>
+    </h2>
+    <p class="reveal" style="color:rgba(240,230,211,.85);text-align:center;max-width:620px;margin:0 auto 2.8rem;font-family:'Fraunces',serif;font-style:italic;font-size:1.1rem;line-height:1.7">
+      A room full of smiles, embraces, and the quiet magic of showing up every Monday.
+    </p>
+
+    <!-- Lazy-loaded video — begins loading only when scrolled near -->
+    <div class="uk-video-wrap reveal">
+      <video class="uk-video" preload="none"
+             poster="assets/community/kiz-social-poster.webp"
+             autoplay muted loop playsinline
+             loading="lazy" data-lazy-video>
+        <source data-src="assets/community/kiz-social.webm" type="video/webm">
+        <source data-src="assets/community/kiz-social.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="uk-photos-grid reveal">
+      <figure class="uk-photo">
+        <img src="assets/community/group-yellow.webp" alt="Hart of Kiz community gathered" loading="lazy" decoding="async">
+      </figure>
+      <figure class="uk-photo">
+        <img src="assets/community/group-flowers.webp" alt="Hart of Kiz community with flowers" loading="lazy" decoding="async">
+      </figure>
+      <figure class="uk-photo">
+        <img src="assets/community/group-studio.webp" alt="Hart of Kiz community in the studio" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+</section>
+
 <!-- ══════════════════════════════════════════════════════════
    IN COLLABORATION WITH
 ══════════════════════════════════════════════════════════ -->
@@ -790,6 +818,30 @@ document.addEventListener('DOMContentLoaded', function() {
   }, { threshold: 0.15 });
   io.observe(djs);
 });
+</script>
+
+
+<script>
+// Lazy-load the community video only when it comes near the viewport
+(function(){
+  const vid = document.querySelector('.uk-video[data-lazy-video]');
+  if (!vid) return;
+  const load = () => {
+    vid.querySelectorAll('source[data-src]').forEach(s => {
+      s.src = s.getAttribute('data-src');
+      s.removeAttribute('data-src');
+    });
+    vid.load();
+  };
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { load(); io.disconnect(); }
+      });
+    }, { rootMargin: '400px' });  // start loading 400px before it enters view
+    io.observe(vid);
+  } else { load(); }
+})();
 </script>
 
 </body>

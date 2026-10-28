@@ -43,7 +43,7 @@
 }
 .hero-cinema {
   position: absolute; inset: -4%;
-  background-size: cover; background-position: center 32%;
+  background-size: cover; background-position: 72% 42%;
   filter: blur(14px) saturate(1.05);
   transform: scale(1.1);
   animation: sharpenIn 2s .2s ease forwards;
@@ -279,7 +279,7 @@
   .pillars-grid, .how-grid, .up-grid { grid-template-columns: 1fr; }
 
   /* ── MOBILE HERO FIXES ── */
-  .hero-cinema { background-position: 66% 40% !important; }
+  .hero-cinema { background-position: 72% 45% !important; }
   .home-hero .wave-out { display: none !important; }
   .home-hero { min-height: 260vh; }
 }
@@ -571,7 +571,7 @@
 // cinematic hero: local file first, CDN fallback, gradient if neither
 (function(){
   const el = document.getElementById('hero-cinema');
-  const LOCAL = 'assets/hero.webp';
+  const LOCAL = 'assets/hero-stage-blue.webp';
   const CDN = 'https://d8j0ntlcm91z4.cloudfront.net/user_3ErSakflWmv1YTxDDtKFlSXTsyT/hf_20260711_021503_9312962b-70dd-467f-a9db-844731733724.png';
   function tryImg(src, ok, fail){ const i=new Image(); i.onload=()=>ok(src); i.onerror=fail; i.src=src; }
   tryImg(LOCAL, s=>el.style.backgroundImage=`url(${s})`,
